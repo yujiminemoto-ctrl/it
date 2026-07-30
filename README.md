@@ -1,25 +1,35 @@
-# IT Learning Portal v2
+# IT Learning Portal
 
-日本企業の社内IT新人向けに作成した VitePress 学習ポータルです。
+社内IT・ITサポート・インフラ運用をこれから担当する人のための、VitePress製の社内学習ポータルです。
 
-## ローカルで確認
+## Demo v3
+
+v3では、v2のコンテンツ構成を保ちながら、次の点を改善しています。
+
+- ホーム画面の情報設計と視認性
+- 学習の入口とおすすめルート
+- カード、見出し、ボタンの統一
+- スマートフォン表示
+- ダークモード表示
+- 新しいホーム用SVG
+
+## ローカル起動
+
 ```bash
 npm install
 npm run docs:dev
 ```
 
-## 本番ビルド
+## ビルド確認
+
 ```bash
 npm run docs:build
 ```
 
-## GitHub Pages
-`.vitepress/config.mjs` の `base` は `/it/` に設定されています。GitHubリポジトリ名が異なる場合は変更してください。
+## GitHub Pagesへの反映
 
-## v2の主な変更
-- ホーム画面とナビゲーションを全面整理
-- DNS、DHCP、IPアドレスを実用レベルまで追加
-- Active Directory、OU・グループ、GPOを追加
-- Microsoft 365、Intuneを追加
-- 障害対応の基本、用語集、学習ルートを追加
-- 全ページのカード、演習、注意事項のデザインを統一
+```bash
+git add .
+git commit -m "Update portal demo v3"
+git push
+```

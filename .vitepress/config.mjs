@@ -3,13 +3,14 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'ja-JP',
   title: 'IT Learning Portal',
-  description: '社内ITをこれから担当する人のための、実務につながる学習ポータル',
+  description: 'IT未経験者が、社内IT・ITサポート・インフラ運用の基礎を実務の流れから学ぶ社内ポータル',
   base: '/it/',
   cleanUrls: true,
   lastUpdated: true,
   appearance: true,
   head: [
-    ['meta', { name: 'theme-color', content: '#2563eb' }],
+    ['meta', { name: 'theme-color', content: '#1d4ed8' }],
+    ['meta', { name: 'color-scheme', content: 'light dark' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }]
   ],
   themeConfig: {
