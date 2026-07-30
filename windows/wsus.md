@@ -1,29 +1,11 @@
 ---
-title: WSUSとは
-description: Windows Server Update Servicesの役割と仕組みを、IT初学者向けにやさしく解説します。
+title: WSUS
+description: Windows Server Update Servicesの役割と仕組みを、将来IT支援を担当する初学者向けに解説します。
 ---
 
-# WSUSとは？
+# WSUS
 
-<div class="lesson-meta"><span>Windows</span><span>初級</span><span>約10分</span></div>
-
-<div class="lesson-lead">会社の Windows Update を、<strong>まとめて管理するための仕組み</strong>です。</div>
-
-## 3分でわかるWSUS
-
-<div class="quick-summary">
-
-### ひとことで言うと
-
-WSUS は、社内のPCやサーバーに配布する Windows Update を、管理者が一か所で管理するためのサーバー機能です。
-
-<div class="three-steps">
-<div><b>1</b><span>同期</span><small>更新情報を取得</small></div>
-<div><b>2</b><span>承認</span><small>配布する更新を選ぶ</small></div>
-<div><b>3</b><span>配布</span><small>対象端末へ届ける</small></div>
-</div>
-
-</div>
+<div class="lesson-meta"><span>Windows</span><span>初級</span><span>約25分</span></div>
 
 ## このページで学ぶこと
 
@@ -36,6 +18,24 @@ WSUS は、社内のPCやサーバーに配布する Windows Update を、管理
 <li><strong>管理者が行う仕事</strong><span>日常運用で確認・判断する内容を理解する</span></li>
 <li><strong>運用時の注意点</strong><span>更新による業務影響を抑える考え方を理解する</span></li>
 </ol>
+</div>
+
+## 3分でわかるWSUS
+
+<div class="quick-summary">
+
+WSUS（Windows Server Update Services）は、社内のPCやWindows Serverへ配布するMicrosoft製品の更新プログラムを、一か所で管理するためのWindows Serverの役割です。
+
+管理者は、更新をただ配布するのではなく、**どの更新を、どの端末へ、いつ適用するか**を判断します。現場では、まず検証用PCで動作を確認し、その後に部署や用途ごとのグループへ段階的に展開することで、業務への影響を抑えます。
+
+<div class="three-steps">
+<div><b>1</b><span>同期</span><small>更新情報を取得する</small></div>
+<div><b>2</b><span>確認・承認</span><small>影響を確認して配布を決める</small></div>
+<div><b>3</b><span>段階的に配布</span><small>対象グループへ展開する</small></div>
+</div>
+
+<div class="quick-summary__point"><strong>管理者としての要点：</strong> WSUSの役割は「更新を配ること」ではなく、更新によるリスクを管理することです。</div>
+
 </div>
 
 ## 1. WSUSとは何か
