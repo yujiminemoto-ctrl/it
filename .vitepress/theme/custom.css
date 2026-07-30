@@ -1,0 +1,84 @@
+:root {
+  --vp-c-brand-1: #0067b8;
+  --vp-c-brand-2: #0078d4;
+  --vp-c-brand-3: #005a9e;
+  --vp-c-brand-soft: rgba(0, 120, 212, 0.12);
+  --vp-font-family-base: "Segoe UI", "Yu Gothic UI", Meiryo, sans-serif;
+  --vp-layout-max-width: 1500px;
+}
+
+.VPHomeHero .name {
+  background: linear-gradient(120deg, #005a9e, #32a7e8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.VPHomeHero .text {
+  max-width: 760px;
+}
+
+.VPFeature {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.architecture {
+  margin: 28px 0;
+  padding: 26px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  overflow-x: auto;
+}
+
+.architecture svg {
+  display: block;
+  min-width: 720px;
+  width: 100%;
+  height: auto;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.learning-card {
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.learning-card h3 {
+  margin: 0 0 8px;
+}
+
+.quiz {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 5px solid var(--vp-c-brand-1);
+  border-radius: 10px;
+  background: var(--vp-c-brand-soft);
+}
+
+.quiz details {
+  margin-top: 12px;
+}
+
+.status-note {
+  padding: 16px 18px;
+  border-left: 5px solid #d97706;
+  background: rgba(217,119,6,.10);
+  border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+  .learning-grid { grid-template-columns: 1fr; }
+}
