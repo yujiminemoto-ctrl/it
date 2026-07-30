@@ -1,29 +1,25 @@
-# IT Learning Portal v0.3
+# IT Learning Portal v2
 
-IT初学者向けの日本語学習ポータルです。VitePressで構築しています。
+日本企業の社内IT新人向けに作成した VitePress 学習ポータルです。
 
 ## ローカルで確認
-
-Node.jsをインストール後、プロジェクトフォルダーで次を実行します。
-
 ```bash
 npm install
 npm run docs:dev
 ```
 
+## 本番ビルド
+```bash
+npm run docs:build
+```
+
 ## GitHub Pages
+`.vitepress/config.mjs` の `base` は `/it/` に設定されています。GitHubリポジトリ名が異なる場合は変更してください。
 
-このプロジェクトにはGitHub Actionsによる自動公開設定が含まれています。
-
-1. GitHubへ全ファイルをアップロード
-2. Repository Settings → Pages
-3. Sourceで **GitHub Actions** を選択
-4. Actionsタブでデプロイ完了を確認
-
-公開URL:
-
-`https://yujiminemoto-ctrl.github.io/it/`
-
-## バージョン
-
-v0.3.0
+## v2の主な変更
+- ホーム画面とナビゲーションを全面整理
+- DNS、DHCP、IPアドレスを実用レベルまで追加
+- Active Directory、OU・グループ、GPOを追加
+- Microsoft 365、Intuneを追加
+- 障害対応の基本、用語集、学習ルートを追加
+- 全ページのカード、演習、注意事項のデザインを統一
