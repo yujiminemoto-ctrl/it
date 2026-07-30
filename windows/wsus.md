@@ -1,6 +1,6 @@
 ---
 title: WSUS
-description: Windows Server Update Servicesの役割と仕組みを、将来IT支援を担当する初学者向けに解説します。
+description: Windows Server Update Servicesの役割と運用の基本を、将来のIT管理者向けにやさしく解説します。
 ---
 
 # WSUS
@@ -10,32 +10,13 @@ description: Windows Server Update Servicesの役割と仕組みを、将来IT�
 ## このページで学ぶこと
 
 <div class="learning-goals">
-<div class="learning-goals__intro">このページでは、WSUSを利用・運用する担当者として必要な5つの基本を、順番に学びます。</div>
 <ol>
 <li><strong>WSUSとは何か</strong><span>役割と管理対象を理解する</span></li>
 <li><strong>なぜWSUSが必要なのか</strong><span>企業で更新を一元管理する理由を理解する</span></li>
-<li><strong>更新が配布される仕組み</strong><span>同期・承認・配布の流れを理解する</span></li>
+<li><strong>更新が配布される仕組み</strong><span>同期・確認・承認・配布の流れを理解する</span></li>
 <li><strong>管理者が行う仕事</strong><span>日常運用で確認・判断する内容を理解する</span></li>
 <li><strong>運用時の注意点</strong><span>更新による業務影響を抑える考え方を理解する</span></li>
 </ol>
-</div>
-
-## 3分でわかるWSUS
-
-<div class="quick-summary">
-
-WSUS（Windows Server Update Services）は、社内のPCやWindows Serverへ配布するMicrosoft製品の更新プログラムを、一か所で管理するためのWindows Serverの役割です。
-
-管理者は、更新をただ配布するのではなく、**どの更新を、どの端末へ、いつ適用するか**を判断します。現場では、まず検証用PCで動作を確認し、その後に部署や用途ごとのグループへ段階的に展開することで、業務への影響を抑えます。
-
-<div class="three-steps">
-<div><b>1</b><span>同期</span><small>更新情報を取得する</small></div>
-<div><b>2</b><span>確認・承認</span><small>影響を確認して配布を決める</small></div>
-<div><b>3</b><span>段階的に配布</span><small>対象グループへ展開する</small></div>
-</div>
-
-<div class="quick-summary__point"><strong>管理者としての要点：</strong> WSUSの役割は「更新を配ること」ではなく、更新によるリスクを管理することです。</div>
-
 </div>
 
 ## 1. WSUSとは何か
@@ -43,6 +24,12 @@ WSUS（Windows Server Update Services）は、社内のPCやWindows Serverへ配
 WSUS（Windows Server Update Services）は、社内のPCやWindows Serverに配布するMicrosoft製品の更新プログラムを、管理者が一か所で管理するためのWindows Serverの役割です。
 
 管理者はWSUSを使い、**どの更新を、どの端末へ、いつ配布するか**を判断します。単に更新ファイルを保存するだけではなく、更新の配布範囲とタイミングをコントロールすることが重要です。
+
+<div class="diagram-panel diagram-panel--portrait">
+<p class="diagram-title">WSUSによる更新管理のイメージ</p>
+<img src="/wsus-flow.svg" alt="Microsoft UpdateからWSUSを経由して社内端末へ更新を配布する流れ">
+<p class="diagram-caption">更新をすぐに全端末へ配るのではなく、管理者が内容を確認・承認してから、対象端末へ段階的に配布します。</p>
+</div>
 
 ::: info 管理する側として覚えること
 WSUSを利用する担当者の仕事は、更新を機械的に配ることではありません。業務への影響を確認し、安全に展開できる順序を考えることです。
@@ -72,22 +59,24 @@ WSUSは「更新ファイルを置くだけのサーバー」ではありませ�
 
 ## 3. 更新が配布される仕組み
 
-<div class="diagram-panel"><img src="/wsus-flow.svg" alt="WSUSの更新配布フロー"></div>
-
 ### 1. 同期
 
 WSUSサーバーがMicrosoft Updateへ接続し、利用可能な更新情報や更新ファイルを取得します。
 
-### 2. 承認
+### 2. 確認
 
-管理者が更新内容を確認し、配布してよい更新を承認します。
+管理者が新しく同期された更新の内容、対象製品、重要度、既知の問題などを確認します。
+
+### 3. 承認
+
+確認した内容をもとに、どのコンピューターグループへ配布するかを決めて更新を承認します。
 
 - 業務アプリに影響がないか
 - まず検証用PCへ配布するか
 - 一般社員PCへいつ配布するか
 - サーバーへ適用してよいか
 
-### 3. 配布
+### 4. 配布
 
 承認された更新が、対象のPCやWindows Serverへ配布されます。
 
@@ -164,7 +153,7 @@ WSUSの管理者は、更新プログラムを承認するだけではありま�
 ### Q2. WSUSの基本的な流れは？
 
 - A. 配布 → 同期 → 承認
-- B. 同期 → 承認 → 配布
+- B. 同期 → 確認 → 承認 → 配布
 - C. 承認 → 配布 → 同期
 
 <details><summary>答えを見る</summary>
@@ -177,7 +166,7 @@ WSUSの管理者は、更新プログラムを承認するだけではありま�
 ## まとめ
 
 - WSUSは社内のWindows Updateを一元管理する仕組み
-- 基本の流れは **同期 → 承認 → 配布**
+- 基本の流れは **同期 → 確認 → 承認 → 配布**
 - 通信量の削減や段階的な展開に役立つ
 - 全社配布の前に検証用PCで確認する
 - 継続的な運用管理が必要
