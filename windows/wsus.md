@@ -1,275 +1,236 @@
 ---
 title: WSUS
-description: Windows Server Update Servicesの役割と運用の基本を、将来のIT管理者向けにやさしく解説します。
+description: WSUSの役割、企業での運用、管理者の判断ポイント、2026年時点の位置づけを実務目線で解説します。
+outline: false
+pageClass: wsus-page
 ---
 
 # WSUS
 
-<div class="lesson-meta"><span>Windows</span><span>初級</span><span>約25分</span></div>
+<p class="article-subtitle">Windows Server Update Services</p>
+<p class="article-summary">社内のWindows PCやサーバーへ配布する更新プログラムを、管理者が一元管理するための仕組みです。<br>このページでは、単なる機能説明ではなく、企業でなぜ必要とされ、管理者が実際に何を判断するのかを学びます。</p>
 
-## このページで学ぶこと
-
-<div class="learning-goals">
-<ol>
-<li><strong>WSUSとは何か</strong><span>役割と管理対象を理解する</span></li>
-<li><strong>なぜWSUSが必要なのか</strong><span>企業で更新を一元管理する理由を理解する</span></li>
-<li><strong>更新が配布される仕組み</strong><span>同期・確認・承認・配布の流れを理解する</span></li>
-<li><strong>管理者が行う仕事</strong><span>日常運用で確認・判断する内容を理解する</span></li>
-<li><strong>運用時の注意点</strong><span>更新による業務影響を抑える考え方を理解する</span></li>
-</ol>
+<div class="wsus-meta-standard">
+  <div>
+    <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-7 17c.7-4.1 3.2-6.2 7-6.2s6.3 2.1 7 6.2"/></svg></span>
+    <span>対象</span><strong>管理者</strong>
+  </div>
+  <div>
+    <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="5" rx="1"/><rect x="4" y="10" width="16" height="5" rx="1"/><rect x="4" y="17" width="16" height="4" rx="1"/><path d="M7 5.5h.01M7 12.5h.01M7 19h.01"/></svg></span>
+    <span>対象環境</span><strong>Windows Server</strong>
+  </div>
+  <div>
+    <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+    <span>読了目安</span><strong>約20分</strong>
+  </div>
+  <div>
+    <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg></span>
+    <span>更新基準</span><strong>2026年7月</strong>
+  </div>
 </div>
 
-## 1. WSUSとは何か
+<nav class="wsus-nav-standard" aria-label="このページの内容">
+<p><span class="wsus-nav-standard__title-icon" aria-hidden="true"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"><path d="M12 5a3 3 0 0 0-3-3H6.5A3.5 3.5 0 0 0 3 5.5v16A3.5 3.5 0 0 1 6.5 18H9a3 3 0 0 1 3 3V5Z"/><path d="M12 5a3 3 0 0 1 3-3h2.5A3.5 3.5 0 0 1 21 5.5v16a3.5 3.5 0 0 0-3.5-3.5H15a3 3 0 0 0-3 3V5Z"/></svg></span>このページの内容</p>
+<a href="#why-important"><span class="wsus-nav-standard__icon is-green" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-1.2.8-1.6 1.3-1.6 2.55M12 17h.01"/></svg></span><span>なぜ重要なのか</span></a>
+<a href="#typical-scenarios"><span class="wsus-nav-standard__icon is-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.4-4.2 2.3-6.3 5.5-6.3s5.1 2.1 5.5 6.3M14.5 14.5c3.5-.4 5.5 1.4 6 5.5"/></svg></span><span>実際の利用シーン</span></a>
+<a href="#how-it-works"><span class="wsus-nav-standard__icon is-purple" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1A8 8 0 0 0 14.8 6L14.5 3h-5l-.3 3A8 8 0 0 0 7.5 7L5 6.1 3 9.5 5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.5-1a8 8 0 0 0 1.7 1l.3 3h5l.3-3a8 8 0 0 0 1.7-1l2.5 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></svg></span><span>基本的な仕組み</span></a>
+<a href="#administrator-perspective"><span class="wsus-nav-standard__icon is-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 12l2.2 2.2 4.8-5"/></svg></span><span>管理者のポイント</span></a>
+<a href="#common-issues"><span class="wsus-nav-standard__icon is-red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8M9 6V4h6v2M7 10h10v6a5 5 0 0 1-10 0v-6Z"/><path d="M3 13h4M17 13h4M4 18l3-1M20 18l-3-1"/></svg></span><span>よくあるトラブル</span></a>
+<a href="#page-summary"><span class="wsus-nav-standard__icon is-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></span><span>まとめ</span></a>
+</nav>
 
-WSUS（Windows Server Update Services）は、社内のPCやWindows Serverに配布するMicrosoft製品の更新プログラムを、管理者が一か所で管理するためのWindows Serverの役割です。
+## 概要
 
-管理者はWSUSを使い、**どの更新を、どの端末へ、いつ配布するか**を判断します。単に更新ファイルを保存するだけではなく、更新の配布範囲とタイミングをコントロールすることが重要です。
+WSUS（Windows Server Update Services）は、Microsoft Updateから提供される更新プログラムを社内で管理し、**どの更新を、どの端末へ、いつ配布するか**を管理者が制御するためのWindows Serverの役割です。
 
-<div class="diagram-panel diagram-panel--portrait">
-<p class="diagram-title">WSUSによる更新管理のイメージ</p>
-<img src="/wsus-flow.svg" alt="Microsoft UpdateからWSUSを経由して社内端末へ更新を配布する流れ">
-<p class="diagram-caption">更新をすぐに全端末へ配るのではなく、管理者が内容を確認・承認してから、対象端末へ段階的に配布します。</p>
+WSUSの目的は、更新ファイルを社内に置くことだけではありません。更新による業務影響を抑えながら、端末の安全性を維持することが本来の役割です。
+
+<div class="standard-callout standard-callout--key">
+<strong>最初に覚えること</strong>
+<p>WSUSは「Windows Updateを止める仕組み」ではなく、企業として安全な順序で更新を配布するための管理基盤です。</p>
 </div>
 
-::: info 管理する側として覚えること
-WSUSを利用する担当者の仕事は、更新を機械的に配ることではありません。業務への影響を確認し、安全に展開できる順序を考えることです。
-:::
+## <span class="wsus-section-heading-icon is-green" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-1.2.8-1.6 1.3-1.6 2.55M12 17h.01"/></svg></span>なぜ重要なのか {#why-important}
 
-## 2. なぜWSUSが必要なのか
+会社に500台のPCがあるとします。すべての端末が各自の判断で更新すると、適用時期がばらばらになり、障害が起きた際に原因や影響範囲を把握しにくくなります。また、同じ更新ファイルを多数のPCが外部から取得するため、ネットワーク負荷も増えます。
 
-たとえば、会社に500台のPCがあるとします。WSUSを使わない場合、500台すべてがMicrosoft Updateへ接続し、同じ更新ファイルを個別にダウンロードします。
-
-<div class="comparison-grid">
+<div class="comparison-grid standard-comparison">
 <div class="comparison-card comparison-card--without">
 <p class="comparison-label">WSUSなし</p>
-<h3>PCごとに更新</h3>
-<ul><li>各PCが外部へ直接接続</li><li>同じ更新を何度も取得</li><li>更新時期がばらばら</li><li>適用状況を把握しにくい</li></ul>
+<div class="comparison-card__body">
+<div class="comparison-card__content">
+<h3>端末ごとに更新</h3>
+<ul>
+<li>適用時期がそろわない</li>
+<li>同じ更新を各PCが取得する</li>
+<li>適用状況を把握しにくい</li>
+<li>不具合時の影響範囲が見えにくい</li>
+</ul>
+</div>
+<div class="comparison-card__diagram comparison-card__diagram--without">
+<svg viewBox="0 0 260 230" role="img" aria-label="複数のPCが個別に更新を取得し、進捗がばらばらでネットワークが混雑する状態">
+<g class="diagram-cloud-group" transform="translate(39 8) scale(.7)">
+<path class="diagram-cloud" d="M99 39c2-16 15-27 31-27 17 0 30 12 31 28 14 1 25 12 25 26 0 15-12 27-27 27H95c-15 0-27-12-27-27 0-14 11-26 25-27h6Z"/>
+<path class="diagram-sync" d="M117 50a18 18 0 0 1 27-2l5 5M149 43v10h-10M143 67a18 18 0 0 1-27 2l-5-5M111 74V64h10"/>
+</g>
+<path class="diagram-route" d="M103 80v27l27 21M121 80v31l9 17M139 80v31l-9 17M157 80v27l-27 21"/>
+<path class="diagram-bottleneck" d="M54 143h152"/>
+<path class="diagram-alert" d="m130 116-11 20h22l-11-20Zm0 7v6m0 3h.01"/>
+<path class="diagram-distribution" d="M130 143v10H37v13m93-13H99v13m31-13h31v13m-31-13h93v13M33 163l4 4 4-4m54 0 4 4 4-4m54 0 4 4 4-4m54 0 4 4 4-4"/>
+<g class="diagram-pc" transform="translate(12 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">15%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h7"/></g>
+<g class="diagram-pc" transform="translate(74 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">42%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h13"/></g>
+<g class="diagram-pc" transform="translate(136 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">68%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h21"/></g>
+<g class="diagram-pc" transform="translate(198 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">91%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h29"/></g>
+</svg>
+</div>
+</div>
 </div>
 <div class="comparison-card comparison-card--with">
 <p class="comparison-label">WSUSあり</p>
-<h3>社内で一元管理</h3>
-<ul><li>更新をまとめて管理</li><li>承認した更新だけを配布</li><li>グループごとに時期を調整</li><li>段階的な展開が可能</li></ul>
-</div>
-</div>
-
-::: tip 初心者向けの考え方
-WSUSは「更新ファイルを置くだけのサーバー」ではありません。  
-**どの更新を、どの端末へ、いつ配布するかを管理する仕組み**です。
-:::
-
-## 3. 更新が配布される仕組み
-
-### 1. 同期
-
-WSUSサーバーがMicrosoft Updateへ接続し、利用可能な更新情報や更新ファイルを取得します。
-
-### 2. 確認
-
-管理者が新しく同期された更新の内容、対象製品、重要度、既知の問題などを確認します。
-
-### 3. 承認
-
-確認した内容をもとに、どのコンピューターグループへ配布するかを決めて更新を承認します。
-
-- 業務アプリに影響がないか
-- まず検証用PCへ配布するか
-- 一般社員PCへいつ配布するか
-- サーバーへ適用してよいか
-
-### 4. 配布
-
-承認された更新が、対象のPCやWindows Serverへ配布されます。
-
-## 4. 管理者が行う仕事
-
-WSUSの管理者は、更新プログラムを承認するだけではありません。**同期できているか、端末が報告しているか、更新に問題がないかを確認し、配布方法を判断すること**が主な仕事です。
-
-<div class="admin-work-grid">
-<div class="admin-work-card"><span class="admin-work-number">01</span><h3>同期状態を確認する</h3><p>Microsoft Updateとの同期が成功しているか、エラーが発生していないかを確認します。</p></div>
-<div class="admin-work-card"><span class="admin-work-number">02</span><h3>更新内容を確認する</h3><p>対象製品、重要度、再起動の有無、既知の問題などを確認します。</p></div>
-<div class="admin-work-card"><span class="admin-work-number">03</span><h3>配布対象を判断する</h3><p>検証用PC、一般社員PC、サーバーなど、どのグループへ配布するかを決めます。</p></div>
-<div class="admin-work-card"><span class="admin-work-number">04</span><h3>適用結果を追跡する</h3><p>成功・失敗・未報告の端末を確認し、必要に応じて原因を調査します。</p></div>
-</div>
-
-::: info 管理者の判断が必要な理由
-同じ更新でも、一般社員PCと業務サーバーでは影響が異なります。すべての端末へ同時に配布するのではなく、業務への影響を考えて段階的に展開します。
-:::
-
-## 実際の仕事で利用するシーン
-
-<div class="scenario-card">
-<p class="scenario-kicker">SCENE 01</p>
-<h3>毎月の定例更新</h3>
-<p>Microsoftから新しい更新が公開されたら、まずWSUSで同期します。管理者は内容を確認し、検証用PCへ先行配布します。問題がなければ一般社員PC、最後に重要なサーバーへ展開します。</p>
-<div class="scenario-flow"><span>同期</span><b>→</b><span>内容確認</span><b>→</b><span>検証</span><b>→</b><span>段階配布</span></div>
-<p class="scenario-point"><strong>このシーンで覚えておきたいポイント</strong><br>更新は「一斉配布」ではなく、「検証してから段階的に配布」するのが基本です。</p>
-</div>
-
-<div class="scenario-card">
-<p class="scenario-kicker">SCENE 02</p>
-<h3>経理部門の業務ソフトと更新が競合した</h3>
-<p>検証中に、特定の更新を適用すると経理ソフトが正常に起動しないことが分かりました。この場合、経理部門のコンピューターグループだけ承認を保留し、ほかの部門への展開を続ける方法があります。</p>
-<p class="scenario-point"><strong>このシーンで覚えておきたいポイント</strong><br>部署や用途ごとにグループを分けておくと、影響範囲を限定できます。</p>
-</div>
-
-<div class="scenario-card">
-<p class="scenario-kicker">SCENE 03</p>
-<h3>緊急のセキュリティ更新が公開された</h3>
-<p>重大な脆弱性に対応する更新が公開された場合、通常より速い判断が必要です。ただし、緊急だからといって確認せずに全端末へ配布するのではなく、対象端末と影響を確認し、短時間でも検証を行います。</p>
-<p class="scenario-point"><strong>このシーンで覚えておきたいポイント</strong><br>緊急時は「速度」と「安全性」の両方を考え、通常運用より短いサイクルで確認と展開を行います。</p>
-</div>
-
-<div class="scenario-card">
-<p class="scenario-kicker">SCENE 04</p>
-<h3>更新後に不具合の報告が増えた</h3>
-<p>配布後にPCの動作不良やアプリのエラーが報告された場合は、追加の承認を止め、対象更新、発生端末、共通条件を確認します。必要に応じて承認の取り消しやアンインストール方法も検討します。</p>
-<p class="scenario-point"><strong>このシーンで覚えておきたいポイント</strong><br>問題が起きたときは、まず影響拡大を止め、その後で原因を切り分けます。</p>
-</div>
-
-## 5. 運用時の注意点
-
-::: warning WSUSサーバー自体も監視する
-同期状態、ディスク容量、データベース、承認状況を継続的に確認します。更新ファイルが増えるため、空き容量の不足にも注意が必要です。
-:::
-
-::: warning いきなり全社配布しない
-業務アプリへの影響を避けるため、検証用PCで確認してから対象範囲を広げます。
-:::
-
-::: warning 「未報告」を放置しない
-長期間WSUSへ接続していない端末は、故障、ネットワーク、グループポリシー、利用停止など複数の原因が考えられます。
-:::
-
-## 管理者トレーニング
-
-<p class="training-lead">次のケースで、管理者として最初に何を確認するか考えてみましょう。</p>
-
-<div class="quiz-block case-quiz">
-<p class="case-label">CASE 01</p>
-### あるPCが6か月間WSUSへ報告していません。最初に確認することは？
-
-- A. すぐにPCを交換する
-- B. PCが現在も利用されているか、起動・接続しているかを確認する
-- C. すべての更新を再承認する
-
-<details><summary>考え方と答えを見る</summary>
-
-**正解：B**
-
-長期間未報告の端末は、まず「現在も存在し、利用されている端末か」を確認します。そのうえでネットワーク、WSUS設定、グループポリシーなどを切り分けます。
-
-</details>
-</div>
-
-<div class="quiz-block case-quiz">
-<p class="case-label">CASE 02</p>
-### 経理ソフトが更新後に動かなくなることが分かりました。最初の対応は？
-
-- A. 全社への配布をそのまま続ける
-- B. 経理部門への承認を保留し、影響範囲を確認する
-- C. WSUSサーバーを停止する
-
-<details><summary>考え方と答えを見る</summary>
-
-**正解：B**
-
-まず影響を受けるグループへの配布を止めます。ほかの部署でも同じソフトを利用していないか確認し、代替策や修正版を検討します。
-
-</details>
-</div>
-
-<div class="quiz-block case-quiz">
-<p class="case-label">CASE 03</p>
-### クライアントPCに承認済みの更新が届きません。最初に確認することは？
-
-- A. PCがWSUSへ正常に接続・報告できているか
-- B. Microsoft 365のライセンス
-- C. PCの壁紙設定
-
-<details><summary>考え方と答えを見る</summary>
-
-**正解：A**
-
-まずWSUSとの通信と最終報告時刻を確認します。その後、対象グループ、承認状態、グループポリシー、Windows Update関連サービスを確認します。
-
-</details>
-</div>
-
-<div class="quiz-block case-quiz">
-<p class="case-label">CASE 04</p>
-### WSUSの同期が失敗しています。最初に確認することは？
-
-- A. 同期エラーの内容と、インターネット・上位サーバーへの接続
-- B. 全クライアントを再起動する
-- C. すべてのコンピューターグループを削除する
-
-<details><summary>考え方と答えを見る</summary>
-
-**正解：A**
-
-エラーコードやメッセージを確認し、外部接続、プロキシ、名前解決、時刻、上位WSUSなど、同期経路を順番に切り分けます。
-
-</details>
-</div>
-
-<div class="quiz-block case-quiz">
-<p class="case-label">CASE 05</p>
-### 緊急のセキュリティ更新が公開されました。どの進め方が適切ですか？
-
-- A. 内容を確認せず全端末へ即時配布する
-- B. 対象と影響を確認し、短時間の検証後に優先度を上げて展開する
-- C. 次月まで何もしない
-
-<details><summary>考え方と答えを見る</summary>
-
-**正解：B**
-
-緊急性が高い場合でも、対象製品、既知の問題、再起動の有無を確認します。検証時間を短縮しつつ、影響の大きい端末から優先的に展開します。
-
-</details>
-</div>
-
-## 今日の業務メモ
-
-<div class="daily-checklist">
-<p>WSUS管理コンソールを開いたら、次の項目を確認します。</p>
+<div class="comparison-card__body">
+<div class="comparison-card__content">
+<h3>組織として管理</h3>
 <ul>
-<li><span>同期</span>最新の同期は成功しているか</li>
-<li><span>更新</span>新しい重要・セキュリティ更新があるか</li>
-<li><span>失敗</span>インストールに失敗した端末が増えていないか</li>
-<li><span>未報告</span>長期間報告していない端末がないか</li>
-<li><span>承認</span>検証済み更新の承認範囲は適切か</li>
+<li>承認した更新だけを配布できる</li>
+<li>部署や用途ごとに時期を分けられる</li>
+<li>適用状況をまとめて確認できる</li>
+<li>検証後に段階展開できる</li>
+</ul>
+</div>
+<div class="comparison-card__diagram comparison-card__diagram--with">
+<svg viewBox="0 0 260 230" role="img" aria-label="WSUSサーバーが更新を一度取得し、複数のPCへ段階的に配布する状態">
+<g class="diagram-cloud-group" transform="translate(39 8) scale(.7)">
+<path class="diagram-cloud" d="M99 30c2-14 15-25 31-25 17 0 30 11 31 26 14 1 25 11 25 24 0 14-12 25-27 25H95c-15 0-27-11-27-25 0-13 11-24 25-25h6Z"/>
+<path class="diagram-sync" d="M117 41a18 18 0 0 1 27-2l5 5M149 34v10h-10M143 58a18 18 0 0 1-27 2l-5-5M111 65V55h10"/>
+</g>
+<path class="diagram-download" d="M130 68v22m-5-6 5 6 5-6"/>
+<g class="diagram-server" transform="translate(108 94)"><rect width="44" height="58" rx="3"/><path d="M8 12h28M8 24h28M8 36h18"/><circle cx="34" cy="47" r="2.5"/></g>
+<path class="diagram-route" d="M130 152v10M31 162h198M31 162v4M97 162v4M163 162v4M229 162v4"/>
+<g class="diagram-pc" transform="translate(6 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><path class="diagram-check" d="m17 16 6 6 12-13"/></g>
+<g class="diagram-pc" transform="translate(72 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">25%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h8"/></g>
+<g class="diagram-pc" transform="translate(138 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">60%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h19"/></g>
+<g class="diagram-pc" transform="translate(204 170)"><rect width="50" height="34" rx="3"/><path d="M-3 38h56M9 34v4h32v-4"/><text x="25" y="15">100%</text><rect class="diagram-progress-track" x="7" y="22" width="36" height="7" rx="1"/><path class="diagram-progress" d="M10 25.5h29"/></g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+
+<div class="current-status-card">
+<div class="current-status-heading"><span>2026年時点</span><strong>既存環境では現役。新規設計ではクラウド管理も比較する</strong></div>
+<p>MicrosoftはWSUSを非推奨とし、新機能を追加しない方針を示しています。一方で、WSUSは削除されたわけではなく、既存機能は引き続き利用でき、Windows Serverのライフサイクルに沿って更新が提供されます。</p>
+<p>そのため、既存環境を担当する管理者には、同期・承認・段階配布・障害対応を理解し、現在の仕組みを安全に維持する知識が必要です。ただし、新しい端末管理を設計する場合は、Microsoft Intuneの更新リングやWindows Autopatchなどのクラウド型サービスも比較対象になります。</p>
+</div>
+
+<div class="wsus-cloud-table">
+<table>
+<colgroup><col class="wsus-cloud-table__view"><col class="wsus-cloud-table__option"><col class="wsus-cloud-table__option"></colgroup>
+<thead><tr><th>観点</th><th>WSUS</th><th>Intune・クラウド管理</th></tr></thead>
+<tbody>
+<tr><td>管理場所</td><td>社内サーバー</td><td>クラウドサービス</td></tr>
+<tr><td>社外端末</td><td>VPNや接続経路の設計が必要になりやすい</td><td>インターネット経由で管理しやすい</td></tr>
+<tr><td>配布方法</td><td>更新を同期し、管理者が承認</td><td>更新リングやポリシーで段階展開</td></tr>
+<tr><td>管理者の仕事</td><td>サーバー保守、同期、承認、状態確認</td><td>ポリシー設計、展開リング、レポート確認</td></tr>
+<tr><td>向いている場面</td><td>既存オンプレミス環境、閉域・制約のある環境</td><td>分散勤務、クラウド中心の端末管理</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="standard-callout standard-callout--note">
+<strong>このポータルでの扱い</strong>
+<p>WSUSを「古いから不要」と切り捨てません。既存環境を安全に運用する知識として学び、同時にクラウド型の更新管理との違いも理解します。</p>
+</div>
+
+## <span class="wsus-section-heading-icon is-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.4-4.2 2.3-6.3 5.5-6.3s5.1 2.1 5.5 6.3M14.5 14.5c3.5-.4 5.5 1.4 6 5.5"/></svg></span>実際の利用シーン {#typical-scenarios}
+
+<div class="scenario-card">
+<p class="scenario-kicker">利用シーン 01</p>
+<h3>毎月の定例更新</h3>
+<p>新しい更新が公開されたら、まず検証用PCへ配布します。業務アプリや周辺機器に問題がないことを確認してから、一般社員PC、重要度の低いサーバー、重要サーバーの順に対象を広げます。</p>
+<div class="scenario-flow"><span>同期</span><b>→</b><span>内容確認</span><b>→</b><span>検証</span><b>→</b><span>段階配布</span></div>
+<p class="scenario-point"><strong>実務のポイント</strong><br>「更新があるから配る」のではなく、「安全に配れることを確認してから広げる」が基本です。</p>
+</div>
+
+<div class="scenario-card">
+<p class="scenario-kicker">利用シーン 02</p>
+<h3>特定部署の業務ソフトと競合した</h3>
+<p>検証中に、更新後から経理ソフトが起動しないことが分かりました。この場合は、経理部門への承認を保留し、ほかの部署への展開可否を判断します。</p>
+<p class="scenario-point"><strong>実務のポイント</strong><br>端末を部署・用途・重要度でグループ化しておくと、問題の影響範囲を限定できます。</p>
+</div>
+
+<div class="scenario-card">
+<p class="scenario-kicker">利用シーン 03</p>
+<h3>緊急のセキュリティ更新</h3>
+<p>重大な脆弱性への対応では、通常より短いサイクルで確認と展開を進めます。ただし、緊急であっても対象製品、再起動の有無、既知の問題を確認し、可能な範囲で検証します。</p>
+<p class="scenario-point"><strong>実務のポイント</strong><br>緊急時は「すぐ全社配布」ではなく、確認工程を短縮しつつ優先度を上げます。</p>
+</div>
+
+## <span class="wsus-section-heading-icon is-purple" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1A8 8 0 0 0 14.8 6L14.5 3h-5l-.3 3A8 8 0 0 0 7.5 7L5 6.1 3 9.5 5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.5-1a8 8 0 0 0 1.7 1l.3 3h5l.3-3a8 8 0 0 0 1.7-1l2.5 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></svg></span>基本的な仕組み {#how-it-works}
+
+<div class="diagram-panel diagram-panel--portrait">
+<p class="diagram-title">WSUSによる更新管理の流れ</p>
+<img src="/wsus-flow.svg" alt="Microsoft UpdateからWSUSを経由して社内端末へ更新を配布する流れ">
+<p class="diagram-caption">Microsoft Updateから情報を同期し、管理者が確認・承認した更新を対象グループへ配布します。</p>
+</div>
+
+<div class="process-steps process-steps--four">
+<div><span>1</span><section><h3>同期</h3><p>WSUSサーバーがMicrosoft Updateへ接続し、更新情報を取得します。</p><aside><strong>ポイント</strong>同期のスケジュールは、組織の運用に合わせて設定します。</aside></section></div>
+<div><span>2</span><section><h3>内容を確認</h3><p>対象製品、重要度、再起動、既知の問題、業務アプリへの影響を確認します。</p><aside><strong>ポイント</strong>すべてを承認せず、必要な更新だけを選別します。</aside></section></div>
+<div><span>3</span><section><h3>配布を承認</h3><p>検証結果をもとに、配布する更新、対象グループ、配布時期を決めます。</p><aside><strong>ポイント</strong>検証用PCから少人数へ進み、全社へ段階的に広げます。</aside></section></div>
+<div><span>4</span><section><h3>配布</h3><p>承認した更新を、指定したコンピューターグループへ配布します。</p><aside><strong>ポイント</strong>配布後は適用状況を監視し、失敗や未報告を確認します。</aside></section></div>
+</div>
+
+## <span class="wsus-section-heading-icon is-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 12l2.2 2.2 4.8-5"/></svg></span>管理者のポイント {#administrator-perspective}
+
+<div class="admin-principles">
+<div><span>1</span><strong>一斉配布しない</strong><p>小規模な検証グループから始め、段階的に範囲を広げます。</p></div>
+<div><span>2</span><strong>端末を用途で分ける</strong><p>一般PC、特殊アプリ利用PC、サーバーを同じ条件で扱わないようにします。</p></div>
+<div><span>3</span><strong>未報告を放置しない</strong><p>長期間報告がない端末は、利用状況、接続、GPO、サービス状態を確認します。</p></div>
+<div><span>4</span><strong>WSUS自体を保守する</strong><p>同期、ディスク容量、データベース、不要更新の整理を継続します。</p></div>
+</div>
+
+<div class="standard-callout standard-callout--admin">
+<strong>管理者としての考え方</strong>
+<p>更新管理で最も重要なのは、承認ボタンを押すことではありません。業務への影響、緊急性、対象端末を考え、適切な展開順序を決めることです。</p>
+</div>
+
+## <span class="wsus-section-heading-icon is-red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8M9 6V4h6v2M7 10h10v6a5 5 0 0 1-10 0v-6Z"/><path d="M3 13h4M17 13h4M4 18l3-1M20 18l-3-1"/></svg></span>よくあるトラブル {#common-issues}
+
+<div class="trouble-grid">
+<div><span>1</span><h3>クライアントが報告しない</h3><p>端末の利用状況、名前解決、ネットワーク、GPO、Windows Update関連サービス、最終報告時刻を確認します。</p></div>
+<div><span>2</span><h3>同期が失敗する</h3><p>エラー内容を確認し、外部接続、プロキシ、DNS、時刻、上位サーバーへの経路を順番に切り分けます。</p></div>
+<div><span>3</span><h3>承認済み更新が届かない</h3><p>対象グループ、承認状態、適用条件、クライアントのスキャン結果を確認します。</p></div>
+<div><span>4</span><h3>更新後に不具合が発生した</h3><p>追加展開を止め、更新番号、対象端末、共通条件を整理して影響拡大を防ぎます。</p></div>
+</div>
+
+<div class="wsus-practice-comparison">
+<div class="wsus-practice-heading wsus-practice-heading--warning"><span class="wsus-practice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg></span><strong>よくある失敗</strong></div>
+<div class="wsus-practice-heading wsus-practice-heading--recommended"><span class="wsus-practice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><strong>推奨される対応</strong></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>1</span><p>新しい更新を内容確認せずすべて承認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>1</span><p>対象製品・再起動・既知の問題を確認し、必要な更新だけを承認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>2</span><p>検証用グループを作らず、最初から全社へ配布する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>2</span><p>検証用PC、パイロット部門、全社の順に段階配布する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>3</span><p>「未報告」を単なる表示上の問題として放置する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>3</span><p>接続、名前解決、GPO、関連サービス、最終報告時刻を確認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>4</span><p>WSUSサーバーの容量やデータベース保守を後回しにする</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>4</span><p>ディスク容量、不要更新、データベース、同期状態を定期的に保守する</p></div>
+</div>
+
+## <span class="wsus-section-heading-icon is-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></span>まとめ {#page-summary}
+
+<div class="takeaway-card">
+<ul>
+<li><span class="takeaway-number">01</span><p class="takeaway-content"><span class="takeaway-lead"><strong>WSUSは更新を一元管理する仕組み</strong><span class="takeaway-separator" aria-hidden="true">&#8288;—</span></span><span class="takeaway-detail">どの更新を、どの端末へ、いつ配布するかを管理する</span></p></li>
+<li><span class="takeaway-number">02</span><p class="takeaway-content"><span class="takeaway-lead"><strong>更新は検証後に段階配布する</strong><span class="takeaway-separator" aria-hidden="true">&#8288;—</span></span><span class="takeaway-detail">一斉配布より、影響を限定できる順序を優先する</span></p></li>
+<li><span class="takeaway-number">03</span><p class="takeaway-content"><span class="takeaway-lead"><strong>未報告や失敗端末を追跡する</strong><span class="takeaway-separator" aria-hidden="true">&#8288;—</span></span><span class="takeaway-detail">配布して終わりではなく、結果確認までが運用</span></p></li>
+<li><span class="takeaway-number">04</span><p class="takeaway-content"><span class="takeaway-lead"><strong>WSUSは非推奨だが、既存環境の知識は必要</strong><span class="takeaway-separator" aria-hidden="true">&#8288;—</span></span><span class="takeaway-detail">新規設計ではIntuneやWindows Autopatchも比較する</span></p></li>
 </ul>
 </div>
 
-## 次に学ぶこと
+## 関連ページ
 
-WSUSの基本を理解したら、次は関連する知識を必要に応じて確認しましょう。
-
-<div class="next-topic-grid">
-<div class="next-topic-card"><strong>グループポリシー</strong><span>クライアントPCへWSUSの接続先を設定する仕組み</span></div>
-<div class="next-topic-card"><strong>DNS</strong><span>WSUSサーバーへ接続するためにも必要な名前解決の基本</span></div>
-<div class="next-topic-card"><strong>Active Directory</strong><span>端末やユーザー、グループポリシーを管理する基盤</span></div>
+<div class="related-pages">
+<a href="./gpo"><span>Windows Server</span><strong>グループポリシー</strong><p>クライアントへWSUS接続先や更新設定を配布する仕組み</p></a>
+<a href="../cloud/intune"><span>クラウド・端末管理</span><strong>Microsoft Intune</strong><p>クラウドから端末と更新ポリシーを管理する方法</p></a>
+<a href="../network/dns"><span>ネットワーク</span><strong>DNS</strong><p>クライアントがWSUSサーバーへ接続するための名前解決</p></a>
 </div>
-
-
-## 6. 現在の位置づけと今後
-
-<div class="status-banner"><strong>WSUSは「すぐに使えなくなる」のではありません</strong>MicrosoftはWSUSを非推奨とし、新機能を追加しない方針を示しています。一方で、現行の運用環境では引き続きサポートされ、製品ライフサイクルに従ったセキュリティと品質の更新を受け取ります。</div>
-
-### 既存環境で学ぶ意味
-現在もWSUSを運用している企業はあります。新人は、既存環境を安全に維持するために、同期、承認、段階配布、未報告端末の調査を理解する必要があります。
-
-### 新しい端末管理ではクラウドも検討する
-インターネット経由で働く端末や拠点外のPCが増えた環境では、Microsoft Intuneの更新リングやWindows Autopatchなど、クラウドを使う更新管理も選択肢になります。
-
-| 観点 | WSUS | Intune・クラウド管理 |
-|---|---|---|
-| 主な管理場所 | 社内サーバー | クラウドサービス |
-| 社外端末 | VPNなどの設計が必要になりやすい | インターネット経由で管理しやすい |
-| 管理者の役割 | サーバー保守、同期、承認、配布 | ポリシー、展開リング、状態確認 |
-| 学ぶ姿勢 | 既存環境の安全な維持 | 将来の移行先も含めて比較する |
-
-::: info このポータルでの扱い
-WSUSを「古いから不要」と切り捨てず、現在の運用を理解したうえで、Intuneなどの新しい管理方法との違いを学びます。
-:::

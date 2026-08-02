@@ -1,80 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1050" role="img" aria-labelledby="title desc">
-  <title id="title">WSUSによる更新管理の流れ</title>
-  <desc id="desc">Microsoft Updateから同期し、管理者が確認と承認を行い、WSUSから検証用PC、一般社員PC、Windows Serverへ更新を配布する縦型の図</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f7fbff"/>
-      <stop offset="1" stop-color="#eef5fb"/>
-    </linearGradient>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0 0L12 6 0 12Z" fill="#0078d4"/>
-    </marker>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#17324d" flood-opacity=".12"/>
-    </filter>
-  </defs>
-
-  <rect width="760" height="1050" rx="32" fill="url(#bg)"/>
-
-  <g font-family="Segoe UI, Meiryo, sans-serif">
-    <rect x="155" y="45" width="450" height="112" rx="24" fill="#ffffff" stroke="#0078d4" stroke-width="3" filter="url(#shadow)"/>
-    <circle cx="220" cy="101" r="31" fill="#e7f3ff"/>
-    <path d="M203 107c0-12 9-21 21-21 8 0 15 4 19 11 2-1 5-2 8-2 10 0 18 8 18 18s-8 18-18 18h-44c-10 0-18-8-18-18 0-8 6-15 14-17z" fill="#0078d4"/>
-    <text x="405" y="94" text-anchor="middle" font-size="25" font-weight="700" fill="#18334d">Microsoft Update</text>
-    <text x="405" y="125" text-anchor="middle" font-size="15" fill="#5f6f7f">更新プログラムの配信元</text>
-
-    <line x1="380" y1="158" x2="380" y2="224" stroke="#0078d4" stroke-width="5" marker-end="url(#arrow)"/>
-    <rect x="270" y="175" width="220" height="46" rx="23" fill="#ffffff" stroke="#b8d8f2"/>
-    <circle cx="302" cy="198" r="17" fill="#0078d4"/>
-    <text x="302" y="204" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">1</text>
-    <text x="390" y="204" text-anchor="middle" font-size="18" font-weight="700" fill="#0078d4">同期</text>
-
-    <rect x="130" y="238" width="500" height="210" rx="28" fill="#e8f4fd" stroke="#0078d4" stroke-width="3" filter="url(#shadow)"/>
-    <rect x="310" y="270" width="140" height="86" rx="16" fill="#0078d4"/>
-    <rect x="334" y="293" width="92" height="10" rx="5" fill="#ffffff"/>
-    <rect x="334" y="317" width="92" height="10" rx="5" fill="#ffffff"/>
-    <circle cx="424" cy="338" r="5" fill="#8ed1ff"/>
-    <text x="380" y="390" text-anchor="middle" font-size="27" font-weight="800" fill="#18334d">WSUSサーバー</text>
-    <text x="380" y="420" text-anchor="middle" font-size="16" fill="#516475">更新情報と更新ファイルを保存・管理</text>
-
-    <line x1="380" y1="449" x2="380" y2="520" stroke="#0078d4" stroke-width="5" marker-end="url(#arrow)"/>
-    <rect x="250" y="466" width="260" height="48" rx="24" fill="#ffffff" stroke="#b8d8f2"/>
-    <circle cx="284" cy="490" r="17" fill="#0078d4"/>
-    <text x="284" y="496" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">2</text>
-    <text x="390" y="496" text-anchor="middle" font-size="18" font-weight="700" fill="#0078d4">内容を確認</text>
-
-    <rect x="155" y="535" width="450" height="128" rx="24" fill="#ffffff" stroke="#6f8fa8" stroke-width="2" filter="url(#shadow)"/>
-    <circle cx="225" cy="599" r="34" fill="#edf3f7"/>
-    <circle cx="225" cy="588" r="12" fill="#526d82"/>
-    <path d="M202 623c4-17 14-25 23-25s19 8 23 25" fill="#526d82"/>
-    <text x="405" y="590" text-anchor="middle" font-size="23" font-weight="800" fill="#18334d">管理者</text>
-    <text x="405" y="620" text-anchor="middle" font-size="15" fill="#5f6f7f">影響・対象・配布時期を判断</text>
-
-    <line x1="380" y1="665" x2="380" y2="736" stroke="#107c41" stroke-width="5" marker-end="url(#arrow)"/>
-    <rect x="250" y="682" width="260" height="48" rx="24" fill="#ffffff" stroke="#b8dbc8"/>
-    <circle cx="284" cy="706" r="17" fill="#107c41"/>
-    <text x="284" y="712" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">3</text>
-    <text x="390" y="712" text-anchor="middle" font-size="18" font-weight="700" fill="#107c41">配布を承認</text>
-
-    <rect x="130" y="751" width="500" height="100" rx="24" fill="#eaf7ef" stroke="#107c41" stroke-width="3" filter="url(#shadow)"/>
-    <text x="380" y="793" text-anchor="middle" font-size="25" font-weight="800" fill="#174b2f">承認済み更新</text>
-    <text x="380" y="824" text-anchor="middle" font-size="15" fill="#4f6e5d">指定したコンピューターグループへ配布</text>
-
-    <line x1="380" y1="852" x2="380" y2="920" stroke="#107c41" stroke-width="5" marker-end="url(#arrow)"/>
-    <rect x="270" y="867" width="220" height="48" rx="24" fill="#ffffff" stroke="#b8dbc8"/>
-    <circle cx="302" cy="891" r="17" fill="#107c41"/>
-    <text x="302" y="897" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">4</text>
-    <text x="390" y="897" text-anchor="middle" font-size="18" font-weight="700" fill="#107c41">配布</text>
-
-    <g fill="#ffffff" stroke="#5f8fb5" stroke-width="2">
-      <rect x="45" y="935" width="205" height="78" rx="18"/>
-      <rect x="278" y="935" width="205" height="78" rx="18"/>
-      <rect x="510" y="935" width="205" height="78" rx="18"/>
-    </g>
-    <g font-size="17" font-weight="700" fill="#18334d">
-      <text x="147" y="982" text-anchor="middle">検証用PC</text>
-      <text x="380" y="982" text-anchor="middle">一般社員PC</text>
-      <text x="612" y="982" text-anchor="middle">Windows Server</text>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 390" role="img" aria-labelledby="title desc">
+<title id="title">WSUSによる更新管理の流れ</title>
+<desc id="desc">Microsoft Updateから同期し、WSUSサーバーで内容を確認し、管理者が承認した更新を検証用PC、一般社員PC、Windows Serverへ段階配布する流れ</desc>
+<defs>
+ <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#1565d8"/></marker>
+ <style>.t{font-family:Segoe UI,Meiryo,sans-serif;fill:#0f172a}.s{font-family:Segoe UI,Meiryo,sans-serif;fill:#64748b}.b{fill:#fff;stroke:#2563eb;stroke-width:2}.n{fill:#1565d8}.l{stroke:#1565d8;stroke-width:3;fill:none;marker-end:url(#a)}.soft{fill:#f7faff}</style>
+</defs>
+<rect width="1400" height="390" rx="24" class="soft"/>
+<g transform="translate(28 36)">
+ <circle class="n" cx="96" cy="0" r="22"/><text x="96" y="7" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">1</text>
+ <rect x="26" y="34" width="140" height="34" rx="17" fill="#fff" stroke="#8bb7ff"/><text x="96" y="57" text-anchor="middle" class="t" fill="#1565d8" font-size="18" font-weight="800">同期</text>
+ <rect class="b" x="0" y="84" width="192" height="184" rx="18"/><path class="n" d="M57 141c4-17 27-22 39-9 16-8 34 5 30 22 15 2 19 21 7 29H54c-16-7-13-33 3-36z"/>
+ <text class="t" x="96" y="215" text-anchor="middle" font-size="19" font-weight="800">Microsoft Update</text><text class="s" x="96" y="244" text-anchor="middle" font-size="15">更新プログラムの配信元</text>
+</g>
+<path class="l" d="M229 208H285"/>
+<g transform="translate(292 36)">
+ <circle class="n" cx="96" cy="0" r="22"/><text x="96" y="7" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">2</text>
+ <rect x="15" y="34" width="162" height="34" rx="17" fill="#fff" stroke="#8bb7ff"/><text x="96" y="57" text-anchor="middle" class="t" fill="#1565d8" font-size="18" font-weight="800">内容を確認</text>
+ <rect class="b" x="0" y="84" width="192" height="184" rx="18"/><rect class="n" x="62" y="121" width="68" height="58" rx="9"/><path d="M78 138h36M78 153h36" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+ <text class="t" x="96" y="215" text-anchor="middle" font-size="21" font-weight="800">WSUSサーバー</text><text class="s" x="96" y="239" text-anchor="middle" font-size="14">更新情報と更新ファイルを</text><text class="s" x="96" y="260" text-anchor="middle" font-size="14">保存・管理</text>
+</g>
+<path class="l" d="M493 208H549"/>
+<g transform="translate(556 36)">
+ <circle class="n" cx="96" cy="0" r="22"/><text x="96" y="7" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">3</text>
+ <rect x="15" y="34" width="162" height="34" rx="17" fill="#fff" stroke="#8bb7ff"/><text x="96" y="57" text-anchor="middle" class="t" fill="#1565d8" font-size="18" font-weight="800">配布を承認</text>
+ <rect class="b" x="0" y="84" width="192" height="184" rx="18"/><circle class="n" cx="96" cy="140" r="20"/><path class="n" d="M61 184c2-29 68-29 70 0z"/>
+ <text class="t" x="96" y="215" text-anchor="middle" font-size="21" font-weight="800">管理者</text><text class="s" x="96" y="239" text-anchor="middle" font-size="14">分類・対象・配布時期を</text><text class="s" x="96" y="260" text-anchor="middle" font-size="14">判断</text>
+</g>
+<path class="l" d="M757 208H813"/>
+<g transform="translate(820 36)">
+ <circle class="n" cx="270" cy="0" r="22"/><text x="270" y="7" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">4</text>
+ <rect x="210" y="34" width="120" height="34" rx="17" fill="#fff" stroke="#8bb7ff"/><text x="270" y="57" text-anchor="middle" class="t" fill="#1565d8" font-size="18" font-weight="800">配布</text>
+ <rect class="b" x="0" y="84" width="540" height="184" rx="18"/>
+ <rect class="b" x="12" y="110" width="156" height="132" rx="14"/><rect class="n" x="65" y="132" width="50" height="34" rx="4"/><rect class="n" x="59" y="169" width="62" height="5" rx="2"/><text class="t" x="90" y="202" text-anchor="middle" font-size="18" font-weight="800">検証用PC</text><text class="s" x="90" y="228" text-anchor="middle" font-size="14">テスト・検証</text>
+ <path class="l" d="M174 176H186"/>
+ <rect class="b" x="192" y="110" width="156" height="132" rx="14"/><circle class="n" cx="247" cy="146" r="12"/><path class="n" d="M229 171c1-18 35-18 36 0z"/><rect class="n" x="270" y="146" width="34" height="25" rx="3"/><text class="t" x="270" y="202" text-anchor="middle" font-size="18" font-weight="800">一般社員PC</text><text class="s" x="270" y="228" text-anchor="middle" font-size="13">一般ユーザー環境へ配布</text>
+ <path class="l" d="M354 176H366"/>
+ <rect class="b" x="372" y="110" width="156" height="132" rx="14"/><rect class="n" x="424" y="132" width="52" height="44" rx="7"/><path d="M436 146h28M436 158h28" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text class="t" x="450" y="202" text-anchor="middle" font-size="16.5" font-weight="800">Windows Server</text><text class="s" x="450" y="228" text-anchor="middle" font-size="13.5">サーバー環境へ配布</text>
+</g>
 </svg>
