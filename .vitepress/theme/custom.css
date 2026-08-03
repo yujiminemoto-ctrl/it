@@ -565,8 +565,10 @@
   margin-inline: auto;
 }
 
+.wsus-page .article-summary,
 .wsus-page .vp-doc > div > p:not(.article-subtitle):not(.article-summary) {
-  max-width: 860px;
+  width: 100%;
+  max-width: none;
 }
 
 .wsus-page .vp-doc > div > h2 {
@@ -1192,6 +1194,22 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.wsus-page .process-steps--five {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.wsus-page .process-steps--five > div {
+  grid-column: span 2;
+}
+
+.wsus-page .process-steps--five > div:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.wsus-page .process-steps--five > div:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
 .wsus-page .process-steps > div {
   display: grid;
   grid-template-columns: 50px 1fr;
@@ -1256,6 +1274,31 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px;
   margin: 22px 0;
+}
+
+.wsus-page:not(.gpo-page) .admin-principles--five {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.wsus-page:not(.gpo-page) .admin-principles--five > div {
+  grid-column: span 2;
+}
+
+.wsus-page:not(.gpo-page) .admin-principles--five > div:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.wsus-page:not(.gpo-page) .admin-principles--five > div:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.wsus-page:not(.gpo-page) .trouble-grid--six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gpo-page .admin-principles--six,
+.gpo-page .trouble-grid--six {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .admin-principles > div,
@@ -1434,6 +1477,308 @@
   line-height: 1.6;
 }
 
+/* Group Policy article additions */
+.gpo-page .gpo-comparison-diagram svg text {
+  fill: var(--vp-c-text-1);
+  stroke: none;
+  font-size: 16px;
+  font-weight: 800;
+  text-anchor: middle;
+}
+
+.gpo-page .gpo-comparison-diagram {
+  display: flex;
+  min-height: 180px;
+  align-self: start;
+  align-items: center;
+  justify-content: center;
+}
+
+.gpo-page .gpo-comparison-diagram svg {
+  width: 100%;
+  max-height: 180px;
+  aspect-ratio: 260 / 220;
+}
+
+.gpo-page .gpo-comparison-diagram .gpo-node {
+  fill: rgba(37, 99, 235, .07);
+  stroke: #2f6fba;
+}
+
+.gpo-page .gpo-comparison-diagram .gpo-pc--warning {
+  stroke: #d98984;
+}
+
+.gpo-page .gpo-flow-panel {
+  padding-inline: 28px;
+}
+
+.gpo-page .gpo-application-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr) 28px) minmax(0, 1fr);
+  gap: 8px;
+  align-items: stretch;
+}
+
+.gpo-page .gpo-application-flow > div {
+  display: flex;
+  min-width: 0;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  border: 1px solid rgba(37, 99, 235, .35);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.gpo-page .gpo-application-flow > div > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 8px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.gpo-page .gpo-application-flow strong {
+  min-height: 2.7em;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+
+.gpo-page .gpo-application-flow svg {
+  width: 48px;
+  height: 48px;
+  margin: 10px 0;
+  fill: none;
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gpo-page .gpo-application-flow b {
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.gpo-page .gpo-application-flow small {
+  margin-top: 5px;
+  color: var(--vp-c-text-2);
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.gpo-page .gpo-application-flow > i {
+  display: grid;
+  place-items: center;
+  color: var(--vp-c-brand-1);
+  font-size: 1.35rem;
+  font-style: normal;
+}
+
+.gpo-page .gpo-processing-order,
+.gpo-page .gpo-diagnostics {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+}
+
+.gpo-page .gpo-processing-order h3,
+.gpo-page .gpo-diagnostics h3 {
+  margin: 0 0 18px;
+}
+
+.gpo-page .gpo-processing-order > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.gpo-page .gpo-processing-order > div span {
+  padding: 8px 14px;
+  border: 1px solid rgba(37, 99, 235, .3);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  font-weight: 700;
+}
+
+.gpo-page .gpo-processing-order > div b {
+  color: var(--vp-c-brand-1);
+  transform: rotate(-90deg);
+}
+
+.gpo-page .gpo-processing-order p {
+  margin: 8px 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.75;
+}
+
+.gpo-page .gpo-processing-order aside {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+}
+
+.gpo-page .gpo-processing-order aside strong {
+  margin-right: 8px;
+  color: var(--vp-c-text-1);
+}
+
+.gpo-page .gpo-processing-example {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+}
+
+.gpo-page .gpo-processing-example > strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.gpo-page .gpo-processing-example > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr) 18px) minmax(0, 1fr);
+  gap: 4px;
+  align-items: center;
+}
+
+.gpo-page .gpo-processing-example > div > span {
+  display: flex;
+  min-width: 0;
+  height: 76px;
+  min-height: 76px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 6px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  font-size: .73rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.gpo-page .gpo-processing-example > div > span.is-result {
+  border-color: rgba(37, 99, 235, .35);
+  background: rgba(37, 99, 235, .06);
+}
+
+.gpo-page .gpo-processing-example > div b {
+  display: block;
+  color: var(--vp-c-text-1);
+}
+
+.gpo-page .gpo-processing-example > div small {
+  display: block;
+  color: var(--vp-c-text-3);
+  font-size: .66rem;
+}
+
+.gpo-page .gpo-processing-example > div i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  text-align: center;
+}
+
+.gpo-page .gpo-processing-example p {
+  margin: 12px 0 0;
+  font-size: .86rem;
+}
+
+@media (max-width: 1100px) and (min-width: 561px) {
+  .gpo-page .gpo-processing-example > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr) 22px) minmax(0, 1fr);
+    row-gap: 10px;
+  }
+
+  .gpo-page .gpo-processing-example > div > i:nth-child(6) {
+    grid-column: 1 / -1;
+    width: 24px;
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+.gpo-page .gpo-configuration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.gpo-page .gpo-configuration-grid > div {
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.gpo-page .gpo-configuration-grid h3 {
+  margin: 0 0 7px;
+}
+
+.gpo-page .gpo-configuration-grid p {
+  margin: 0 0 10px;
+  color: var(--vp-c-text-2);
+}
+
+.gpo-page .gpo-configuration-grid ul {
+  margin: 0;
+}
+
+.gpo-page .admin-principles small {
+  display: block;
+  margin-top: 7px;
+  color: var(--vp-c-text-3);
+  overflow-wrap: anywhere;
+}
+
+.gpo-page .gpo-diagnostics > div {
+  display: grid;
+  grid-template-columns: minmax(210px, .8fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: start;
+  padding: 14px 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.gpo-page .gpo-diagnostics code,
+.gpo-page .gpo-diagnostics > div > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.gpo-page .gpo-diagnostics p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+
+.gpo-page .gpo-last-updated {
+  margin: -16px 0 16px;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: right;
+}
+
 /* Responsive */
 @media (min-width: 1440px) {
   .VPNavBar .container {
@@ -1503,8 +1848,17 @@
     grid-template-columns: 1fr;
   }
 
+  .gpo-page .standard-comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .comparison-card__body {
     grid-template-columns: minmax(0, 1fr) 240px;
+  }
+
+  .gpo-page .comparison-card__body {
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 8px;
   }
 }
 
@@ -1530,6 +1884,23 @@
   .wsus-meta-standard > div:nth-child(4) {
     border-top: 1px solid var(--vp-c-divider);
   }
+
+  .wsus-page .process-steps--five,
+  .wsus-page:not(.gpo-page) .admin-principles--five,
+  .wsus-page:not(.gpo-page) .trouble-grid--six,
+  .gpo-page .admin-principles--six,
+  .gpo-page .trouble-grid--six {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wsus-page .process-steps--five > div,
+  .wsus-page .process-steps--five > div:nth-child(4),
+  .wsus-page .process-steps--five > div:nth-child(5),
+  .wsus-page:not(.gpo-page) .admin-principles--five > div,
+  .wsus-page:not(.gpo-page) .admin-principles--five > div:nth-child(4),
+  .wsus-page:not(.gpo-page) .admin-principles--five > div:nth-child(5) {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1543,6 +1914,19 @@
 
   .wsus-page .wsus-practice-comparison {
     grid-template-columns: 1fr;
+  }
+
+  .gpo-page .gpo-application-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .gpo-page .gpo-application-flow > div {
+    min-height: 0;
+  }
+
+  .gpo-page .gpo-application-flow > i {
+    min-height: 24px;
+    transform: rotate(90deg);
   }
 }
 
@@ -1564,6 +1948,18 @@
   .admin-principles,
   .trouble-grid,
   .related-pages {
+    grid-template-columns: 1fr;
+  }
+
+  .wsus-page .process-steps--five,
+  .wsus-page:not(.gpo-page) .admin-principles--five,
+  .wsus-page:not(.gpo-page) .trouble-grid--six,
+  .gpo-page .admin-principles--six,
+  .gpo-page .trouble-grid--six {
+    grid-template-columns: 1fr;
+  }
+
+  .gpo-page .gpo-configuration-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1657,5 +2053,36 @@
 
   .wsus-page .scenario-card {
     padding: 24px 22px;
+  }
+
+  .gpo-page .gpo-flow-panel,
+  .gpo-page .gpo-processing-order,
+  .gpo-page .gpo-diagnostics {
+    padding: 20px;
+  }
+
+  .gpo-page .gpo-processing-order > div {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .gpo-page .gpo-processing-order > div b {
+    transform: none;
+  }
+
+  .gpo-page .gpo-diagnostics > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .gpo-page .gpo-processing-example > div {
+    grid-template-columns: 1fr;
+  }
+
+  .gpo-page .gpo-processing-example > div i {
+    width: 24px;
+    justify-self: center;
+    transform: rotate(90deg);
   }
 }

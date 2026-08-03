@@ -173,47 +173,55 @@ WSUSの目的は、更新ファイルを社内に置くことだけではあり�
 <p class="diagram-caption">Microsoft Updateから情報を同期し、管理者が確認・承認した更新を対象グループへ配布します。</p>
 </div>
 
-<div class="process-steps process-steps--four">
-<div><span>1</span><section><h3>同期</h3><p>WSUSサーバーがMicrosoft Updateへ接続し、更新情報を取得します。</p><aside><strong>ポイント</strong>同期のスケジュールは、組織の運用に合わせて設定します。</aside></section></div>
-<div><span>2</span><section><h3>内容を確認</h3><p>対象製品、重要度、再起動、既知の問題、業務アプリへの影響を確認します。</p><aside><strong>ポイント</strong>すべてを承認せず、必要な更新だけを選別します。</aside></section></div>
-<div><span>3</span><section><h3>配布を承認</h3><p>検証結果をもとに、配布する更新、対象グループ、配布時期を決めます。</p><aside><strong>ポイント</strong>検証用PCから少人数へ進み、全社へ段階的に広げます。</aside></section></div>
-<div><span>4</span><section><h3>配布</h3><p>承認した更新を、指定したコンピューターグループへ配布します。</p><aside><strong>ポイント</strong>配布後は適用状況を監視し、失敗や未報告を確認します。</aside></section></div>
+<div class="process-steps process-steps--five">
+<div><span>1</span><section><h3>同期する</h3><p>WSUSサーバーがMicrosoft Updateへ接続し、更新情報を取得します。</p><aside><strong>ポイント</strong>同期の成否、対象製品、分類、最終同期時刻を確認します。</aside></section></div>
+<div><span>2</span><section><h3>内容を確認する</h3><p>対象製品、重要度、再起動の要否、既知の問題、業務への影響を確認します。</p><aside><strong>ポイント</strong>緊急度だけで判断せず、対象環境と業務影響を合わせて確認します。</aside></section></div>
+<div><span>3</span><section><h3>検証用グループへ承認する</h3><p>まず検証用PCへ更新を承認し、更新後の動作を確認します。</p><aside><strong>ポイント</strong>OSだけでなく、業務アプリ、周辺機器、起動、サインインも確認します。</aside></section></div>
+<div><span>4</span><section><h3>段階的に配布する</h3><p>検証結果を確認しながら、一般PC、重要度の低いサーバー、重要サーバーへ順に対象を広げます。</p><aside><strong>ポイント</strong>影響が出た場合に止められるよう、一度に広げすぎないようにします。</aside></section></div>
+<div><span>5</span><section><h3>結果を確認する</h3><p>適用状況、失敗、未報告、再起動待ちの端末を確認します。</p><aside><strong>ポイント</strong>更新を承認して終わりではなく、結果確認と対象端末の追跡までを運用に含めます。</aside></section></div>
 </div>
 
 ## <span class="wsus-section-heading-icon is-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 12l2.2 2.2 4.8-5"/></svg></span>管理者のポイント {#administrator-perspective}
 
-<div class="admin-principles">
+<div class="admin-principles admin-principles--five">
 <div><span>1</span><strong>一斉配布しない</strong><p>小規模な検証グループから始め、段階的に範囲を広げます。</p></div>
-<div><span>2</span><strong>端末を用途で分ける</strong><p>一般PC、特殊アプリ利用PC、サーバーを同じ条件で扱わないようにします。</p></div>
-<div><span>3</span><strong>未報告を放置しない</strong><p>長期間報告がない端末は、利用状況、接続、GPO、サービス状態を確認します。</p></div>
-<div><span>4</span><strong>WSUS自体を保守する</strong><p>同期、ディスク容量、データベース、不要更新の整理を継続します。</p></div>
+<div><span>2</span><strong>端末を用途と重要度で分ける</strong><p>一般PC、特殊な業務アプリを使用するPC、業務サーバーを同じ条件で扱わないようにします。</p></div>
+<div><span>3</span><strong>未報告や失敗を追跡する</strong><p>長期間報告がない端末や、更新に失敗した端末を放置しません。</p></div>
+<div><span>4</span><strong>配布停止と切り戻しを準備する</strong><p>問題発生時に追加配布を止め、必要に応じたアンインストールや復旧を判断できるよう、影響範囲の確認手順を事前に決めます。</p></div>
+<div><span>5</span><strong>WSUS自体を保守する</strong><p>同期、ディスク容量、データベース、不要更新の整理を継続します。</p></div>
 </div>
 
 <div class="standard-callout standard-callout--admin">
 <strong>管理者としての考え方</strong>
-<p>更新管理で最も重要なのは、承認ボタンを押すことではありません。業務への影響、緊急性、対象端末を考え、適切な展開順序を決めることです。</p>
+<p>WSUSは、更新を配布するだけでなく、対象、検証、展開順序、結果確認、保守を一体で管理します。</p>
 </div>
 
 ## <span class="wsus-section-heading-icon is-red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8M9 6V4h6v2M7 10h10v6a5 5 0 0 1-10 0v-6Z"/><path d="M3 13h4M17 13h4M4 18l3-1M20 18l-3-1"/></svg></span>よくあるトラブル {#common-issues}
 
-<div class="trouble-grid">
-<div><span>1</span><h3>クライアントが報告しない</h3><p>端末の利用状況、名前解決、ネットワーク、GPO、Windows Update関連サービス、最終報告時刻を確認します。</p></div>
-<div><span>2</span><h3>同期が失敗する</h3><p>エラー内容を確認し、外部接続、プロキシ、DNS、時刻、上位サーバーへの経路を順番に切り分けます。</p></div>
-<div><span>3</span><h3>承認済み更新が届かない</h3><p>対象グループ、承認状態、適用条件、クライアントのスキャン結果を確認します。</p></div>
-<div><span>4</span><h3>更新後に不具合が発生した</h3><p>追加展開を止め、更新番号、対象端末、共通条件を整理して影響拡大を防ぎます。</p></div>
+<div class="trouble-grid trouble-grid--six">
+<div><span>1</span><h3>クライアントが報告しない</h3><p>端末の利用状況、WSUSへの接続、名前解決、GPO、関連サービス、最終報告時刻を確認します。</p></div>
+<div><span>2</span><h3>同期が失敗する</h3><p>外部接続、プロキシ、名前解決、時刻、Microsoft Updateへの経路、同期ログを確認します。</p></div>
+<div><span>3</span><h3>承認済み更新が検出されない</h3><p>対象グループ、承認状態、製品と分類、適用条件、クライアントのスキャン結果を確認します。</p></div>
+<div><span>4</span><h3>ダウンロードまたはインストールに失敗する</h3><p>エラーコード、ディスク容量、Windows Update関連サービス、再起動待ち、端末側ログを確認します。</p></div>
+<div><span>5</span><h3>WSUSサーバーやコンソールが遅い</h3><p>ディスク容量、不要更新、データベース、IIS、同期対象の製品や分類を確認します。</p></div>
+<div><span>6</span><h3>更新後に業務上の不具合が発生した</h3><p>追加配布を止め、更新番号、対象端末、共通条件、業務アプリへの影響を整理します。</p></div>
 </div>
 
 <div class="wsus-practice-comparison">
 <div class="wsus-practice-heading wsus-practice-heading--warning"><span class="wsus-practice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg></span><strong>よくある失敗</strong></div>
 <div class="wsus-practice-heading wsus-practice-heading--recommended"><span class="wsus-practice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><strong>推奨される対応</strong></div>
-<div class="wsus-practice-item wsus-practice-item--warning"><span>1</span><p>新しい更新を内容確認せずすべて承認する</p></div>
-<div class="wsus-practice-item wsus-practice-item--recommended"><span>1</span><p>対象製品・再起動・既知の問題を確認し、必要な更新だけを承認する</p></div>
-<div class="wsus-practice-item wsus-practice-item--warning"><span>2</span><p>検証用グループを作らず、最初から全社へ配布する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>1</span><p>内容を確認せず、すべて承認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>1</span><p>対象製品、再起動の要否、既知の問題、適用条件を確認し、必要な更新だけを承認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>2</span><p>最初から全社へ配布する</p></div>
 <div class="wsus-practice-item wsus-practice-item--recommended"><span>2</span><p>検証用PC、パイロット部門、全社の順に段階配布する</p></div>
-<div class="wsus-practice-item wsus-practice-item--warning"><span>3</span><p>「未報告」を単なる表示上の問題として放置する</p></div>
-<div class="wsus-practice-item wsus-practice-item--recommended"><span>3</span><p>接続、名前解決、GPO、関連サービス、最終報告時刻を確認する</p></div>
-<div class="wsus-practice-item wsus-practice-item--warning"><span>4</span><p>WSUSサーバーの容量やデータベース保守を後回しにする</p></div>
-<div class="wsus-practice-item wsus-practice-item--recommended"><span>4</span><p>ディスク容量、不要更新、データベース、同期状態を定期的に保守する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>3</span><p>緊急更新だから検証を省略する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>3</span><p>検証時間を短縮しつつ、対象製品と業務影響を確認してから優先展開する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>4</span><p>「未報告」を表示上の問題として放置する</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>4</span><p>端末の利用状況、接続、DNS、GPO、関連サービス、最終報告時刻を確認する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>5</span><p>配布後に結果を確認しない</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>5</span><p>適用率、失敗、未報告、再起動待ちを確認し、対象端末を追跡する</p></div>
+<div class="wsus-practice-item wsus-practice-item--warning"><span>6</span><p>WSUSの保守を後回しにする</p></div>
+<div class="wsus-practice-item wsus-practice-item--recommended"><span>6</span><p>不要更新、ディスク容量、データベース、同期対象を定期的に整理する</p></div>
 </div>
 
 ## <span class="wsus-section-heading-icon is-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></span>まとめ {#page-summary}
