@@ -2986,7 +2986,7 @@
   grid-template-columns: 32px 112px minmax(0, 1fr) 112px;
   gap: 16px;
   align-items: center;
-  padding: 14px 18px;
+  padding: 14px 96px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
   background: var(--vp-c-bg-soft);
