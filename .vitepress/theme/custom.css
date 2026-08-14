@@ -2003,6 +2003,10 @@
   padding-left: 20px;
 }
 
+.dns-page .dns-record-grid > div:last-child > ul > li {
+  margin-top: 0;
+}
+
 .dns-page .dns-scope-grid code {
   overflow-wrap: anywhere;
 }
