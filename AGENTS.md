@@ -178,6 +178,28 @@ Every technology article should follow this order whenever applicable.
 
 
 
+\# Standard Article Metadata
+
+
+
+Knowledge pages should use these three metadata fields by default:
+
+Reading time must use one of these ranges: 5～10分, 10～15分, 15～20分, or 20～30分. Do not use single-time estimates such as 約20分 or 20分程度. Use 15～20分 for current primary knowledge pages unless their content volume clearly requires another range.
+
+
+
+\- 対象環境
+
+\- 読了目安
+
+\- 更新基準
+
+
+
+Do not add「対象：管理者」by default. Reintroduce「対象」only when the intended audience materially differs by page, such as 利用者向け, ヘルプデスク向け, ネットワーク管理者向け, or サーバー管理者向け.
+
+
+
 \---
 
 

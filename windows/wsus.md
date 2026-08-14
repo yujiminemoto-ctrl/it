@@ -12,16 +12,12 @@ pageClass: wsus-page
 
 <div class="wsus-meta-standard">
   <div>
-    <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-7 17c.7-4.1 3.2-6.2 7-6.2s6.3 2.1 7 6.2"/></svg></span>
-    <span>対象</span><strong>管理者</strong>
-  </div>
-  <div>
     <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="5" rx="1"/><rect x="4" y="10" width="16" height="5" rx="1"/><rect x="4" y="17" width="16" height="4" rx="1"/><path d="M7 5.5h.01M7 12.5h.01M7 19h.01"/></svg></span>
     <span>対象環境</span><strong>Windows Server</strong>
   </div>
   <div>
     <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
-    <span>読了目安</span><strong>約20分</strong>
+    <span>読了目安</span><strong>15～20分</strong>
   </div>
   <div>
     <span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg></span>
@@ -56,7 +52,7 @@ WSUSの目的は、更新ファイルを社内に置くことだけではあり�
 
 <div class="comparison-grid standard-comparison">
 <div class="comparison-card comparison-card--without">
-<p class="comparison-label">WSUSなし</p>
+<p class="comparison-label">WSUSがない場合</p>
 <div class="comparison-card__body">
 <div class="comparison-card__content">
 <h3>端末ごとに更新</h3>
@@ -86,7 +82,7 @@ WSUSの目的は、更新ファイルを社内に置くことだけではあり�
 </div>
 </div>
 <div class="comparison-card comparison-card--with">
-<p class="comparison-label">WSUSあり</p>
+<p class="comparison-label">WSUSがある場合</p>
 <div class="comparison-card__body">
 <div class="comparison-card__content">
 <h3>組織として管理</h3>

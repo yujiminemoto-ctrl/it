@@ -599,7 +599,7 @@
 
 .wsus-meta-standard {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
   margin: 20px 0 24px;
   overflow: hidden;
@@ -1553,6 +1553,8 @@
 }
 
 .dns-page .dns-scenario-grid .scenario-kicker {
+  width: fit-content;
+  align-self: flex-start;
   margin-bottom: 10px;
 }
 
@@ -1714,6 +1716,170 @@
 .dns-page .dns-query-flow {
   justify-content: flex-start;
   gap: 14px;
+}
+
+.dns-page .dns-server-types {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 24px;
+}
+
+.dns-page .dns-server-types > div {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dns-page .dns-server-types h4,
+.dns-page .dns-server-types p {
+  margin: 0 0 10px;
+}
+
+.dns-page .dns-server-types p,
+.dns-page .dns-server-types small {
+  color: var(--vp-c-text-2);
+}
+
+.dns-page .dns-server-types small {
+  display: block;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.dns-page .dns-server-type-example {
+  display: flex;
+  min-height: 94px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.dns-page .dns-server-type-example code {
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: .8rem;
+}
+
+.dns-page .dns-answer-flow {
+  margin: 22px 0 26px;
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dns-page .dns-answer-flow__start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dns-page .dns-answer-flow__start span,
+.dns-page .dns-answer-flow__start strong,
+.dns-page .dns-answer-flow__branches > div > span,
+.dns-page .dns-answer-flow__branches > div > code {
+  display: block;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(37, 99, 235, .28);
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.dns-page .dns-answer-flow__start strong {
+  border-color: rgba(37, 99, 235, .5);
+  color: var(--vp-c-brand-1);
+  background: rgba(37, 99, 235, .06);
+}
+
+.dns-page .dns-answer-flow i,
+.dns-page .dns-answer-flow__branches i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dns-page .dns-answer-flow__branches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.dns-page .dns-answer-flow__branches > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+}
+
+.dns-page .dns-answer-flow__branches > div > b {
+  color: var(--vp-c-brand-1);
+}
+
+.dns-page .dns-answer-flow__branches > div > span,
+.dns-page .dns-answer-flow__branches > div > code {
+  width: 100%;
+}
+
+.dns-page .dns-answer-flow__branches code {
+  white-space: nowrap;
+  font-size: .78rem;
+}
+
+.dns-page .dns-answer-flow__branches .is-result {
+  border-color: rgba(37, 99, 235, .5);
+  background: rgba(37, 99, 235, .06);
+  font-weight: 700;
+}
+
+.dns-page .dns-forwarder-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.dns-page .dns-forwarder-flow > span {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 9px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.dns-page .dns-forwarder-flow > span small {
+  margin-top: 3px;
+  color: var(--vp-c-text-3);
+}
+
+.dns-page .dns-forwarder-flow > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
 }
 
 .dns-page .dns-record-intro {
@@ -1961,6 +2127,1251 @@
 }
 
 .dns-page .dns-last-updated {
+  margin: 18px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* IP address article additions */
+.ip-address-page code {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.ip-address-page .ip-basic-route,
+.ip-address-page .ip-gateway-panel {
+  margin-block: 20px 24px;
+}
+
+.ip-address-page .ip-basic-route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 26px;
+}
+
+.ip-address-page .ip-basic-route > p {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+.ip-address-page .ip-route-destination {
+  border-color: rgba(37, 99, 235, .4) !important;
+  background: rgba(37, 99, 235, .06) !important;
+}
+
+.ip-address-page .ip-route-destination small {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+.ip-address-page .ip-basic-route > div,
+.ip-address-page .ip-gateway-panel span {
+  display: grid;
+  min-width: 190px;
+  gap: 7px;
+  padding: 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.ip-address-page .ip-basic-route i,
+.ip-address-page .ip-gateway-panel i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.ip-address-page .ip-impact-grid,
+.ip-address-page .ip-type-grid,
+.ip-address-page .ip-special-grid,
+.ip-address-page .ip-network-compare,
+.ip-address-page .ip-scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 24px;
+}
+
+.ip-address-page .ip-impact-grid > div,
+.ip-address-page .ip-type-grid > div,
+.ip-address-page .ip-special-grid > div,
+.ip-address-page .ip-network-compare > div,
+.ip-address-page .ip-definition-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-impact-grid > div {
+  text-align: left;
+}
+
+.ip-address-page .ip-impact-heading {
+  margin: 24px 0 12px;
+}
+
+.ip-address-page .ip-impact-grid h4 {
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.ip-address-page .ip-impact-grid p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+
+.ip-address-page .ip-scenario-grid .scenario-card {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+}
+
+.ip-address-page .ip-scenario-grid .scenario-point {
+  margin-top: auto;
+}
+
+.ip-address-page .ip-definition-card {
+  margin: 18px 0 24px;
+}
+
+.ip-address-page .ip-setting-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.ip-address-page .ip-setting-overview > div {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-setting-overview strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ip-address-page .ip-setting-overview p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.ip-address-page .ip-setting-overview > p {
+  grid-column: 1 / -1;
+  padding: 2px 4px 0;
+}
+
+.ip-address-page .ip-adapter-note {
+  margin: 18px 0 24px;
+  padding: 18px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-adapter-note h4,
+.ip-address-page .ip-adapter-note p {
+  margin: 0;
+}
+
+.ip-address-page .ip-adapter-note > p {
+  margin-top: 9px;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-adapter-note > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.ip-address-page .ip-adapter-note > div > span {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  padding: 11px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.ip-address-page .ip-adapter-note code,
+.ip-address-page .ip-reserved-address-note code {
+  white-space: nowrap;
+}
+
+.ip-address-page .ip-octets {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ip-address-page .ip-octets code {
+  display: grid;
+  min-width: 58px;
+  min-height: 46px;
+  place-items: center;
+  border: 1px solid rgba(37, 99, 235, .25);
+  border-radius: 8px;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.ip-address-page .ip-octets b {
+  color: var(--vp-c-text-3);
+  font-size: 1.15rem;
+}
+
+.ip-address-page .ip-definition-card > code {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.ip-address-page .ip-definition-card p,
+.ip-address-page .ip-definition-card small,
+.ip-address-page .ip-type-grid p,
+.ip-address-page .ip-special-grid p {
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-definition-card--compact {
+  max-width: 760px;
+}
+
+.ip-address-page .ip-cidr-examples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ip-address-page .ip-cidr-examples > div {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+}
+
+.ip-address-page .ip-cidr-examples > div > span {
+  color: var(--vp-c-brand-1);
+  font-weight: 800;
+}
+
+.ip-address-page .ip-cidr-examples > div > small {
+  grid-column: 1 / -1;
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+}
+
+.ip-address-page .ip-cidr-examples > div > p {
+  grid-column: 1 / -1;
+  margin: 4px 0 2px;
+  color: var(--vp-c-text-2);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+.ip-address-page .ip-cidr-examples > div > small + small {
+  margin-top: -3px;
+}
+
+.ip-address-page .ip-cidr-examples > div > small b {
+  color: var(--vp-c-text-1);
+}
+
+.ip-address-page .ip-cidr-examples > div > small code {
+  white-space: nowrap;
+  font-size: .7rem;
+}
+
+.ip-address-page .ip-cidr-examples .is-host strong {
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.ip-address-page .ip-reserved-address-note > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.ip-address-page .ip-reserved-address-note > div > span {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  padding: 11px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+}
+
+.ip-address-page .ip-reserved-address-note small {
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-network-compare > div,
+.ip-address-page .ip-special-grid > div {
+  display: grid;
+  gap: 8px;
+}
+
+.ip-address-page .ip-network-compare code {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: baseline;
+  padding: 7px 9px;
+}
+
+.ip-address-page .ip-network-compare code b {
+  color: var(--vp-c-brand-1);
+  font-weight: 800;
+}
+
+.ip-address-page .ip-network-compare > div:last-child code b {
+  text-decoration: underline;
+  text-decoration-color: rgba(220, 38, 38, .38);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.ip-address-page .ip-support-note {
+  margin: -10px 0 26px;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-network-compare > div:first-child {
+  border-color: rgba(22, 163, 74, .28);
+}
+
+.ip-address-page .ip-network-compare > div:last-child {
+  border-color: rgba(220, 38, 38, .24);
+}
+
+.ip-address-page .ip-gateway-panel {
+  padding: 24px;
+}
+
+.ip-address-page .ip-gateway-panel section + section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.ip-address-page .ip-gateway-panel section > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.ip-address-page .ip-gateway-panel .is-gateway {
+  border-color: rgba(37, 99, 235, .4);
+  background: rgba(37, 99, 235, .06);
+}
+
+.ip-address-page .ip-gateway-panel h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ip-address-page .ip-gateway-panel h4 small {
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--vp-c-brand-1);
+  background: rgba(37, 99, 235, .07);
+  font-size: .74rem;
+}
+
+.ip-address-page .ip-gateway-config-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0 20px;
+}
+
+.ip-address-page .ip-gateway-config-grid > div {
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+  padding: 17px;
+  border: 1px solid rgba(22, 163, 74, .25);
+  border-radius: 11px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-gateway-config-grid > div.needs-check {
+  border-color: rgba(217, 137, 132, .42);
+}
+
+.ip-address-page .ip-gateway-config-grid span {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ip-address-page .ip-gateway-config-grid code {
+  white-space: nowrap;
+}
+
+.ip-address-page .ip-gateway-config-grid p {
+  margin: 2px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-gateway-examples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 28px;
+}
+
+.ip-address-page .ip-gateway-examples > section {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-gateway-examples h4 {
+  margin: 0 0 8px;
+}
+
+.ip-address-page .ip-gateway-examples > section > p {
+  margin: 0 0 16px;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-gateway-example-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.3fr) auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: stretch;
+}
+
+.ip-address-page .ip-gateway-example-flow > span {
+  display: grid;
+  min-width: 0;
+  place-content: center;
+  gap: 5px;
+  padding: 11px 8px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.ip-address-page .ip-gateway-example-flow > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.ip-address-page .ip-gateway-example-flow code {
+  white-space: nowrap;
+  font-size: .76rem;
+}
+
+.ip-address-page .ip-gateway-example-flow small {
+  color: var(--vp-c-brand-1);
+  font-size: .7rem;
+  line-height: 1.35;
+}
+
+.ip-address-page .ip-gateway-example-flow .is-gateway-device {
+  border-color: rgba(37, 99, 235, .34);
+  background: rgba(37, 99, 235, .06);
+}
+
+.ip-address-page .ip-nat-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 14px;
+  margin: -4px 0 28px;
+  padding: 22px;
+}
+
+.ip-address-page .ip-nat-flow > div {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  place-content: center;
+  gap: 7px;
+  padding: 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.ip-address-page .ip-nat-flow > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.ip-address-page .ip-nat-flow .is-nat {
+  border-color: rgba(37, 99, 235, .4);
+  background: rgba(37, 99, 235, .06);
+}
+
+.ip-address-page .ip-type-grid h3,
+.ip-address-page .ip-special-grid strong {
+  margin: 0 0 8px;
+}
+
+.ip-address-page .ip-type-grid code {
+  display: block;
+  width: fit-content;
+  margin-top: 7px;
+}
+
+.ip-address-page .ip-address-types > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-address-page .ip-address-types > div:first-child > small {
+  margin-top: 22px;
+}
+
+.ip-address-page .ip-address-types > div > p:last-child {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.ip-address-page .ip-addressing-methods small {
+  display: block;
+  margin-top: 14px;
+  color: var(--vp-c-text-3);
+  font-weight: 700;
+}
+
+.ip-address-page .ip-addressing-methods ul {
+  margin-bottom: 0;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-admin-checks,
+.ip-address-page .ip-trouble-grid,
+.ip-address-page .ip-admin-process {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ip-address-page .ip-command-list {
+  margin: 22px 0;
+  padding: 0 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.ip-address-page .ip-command-list > div {
+  display: grid;
+  grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr);
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.ip-address-page .ip-command-list > div:last-child {
+  border-bottom: 0;
+}
+
+.ip-address-page .ip-command-list p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+}
+
+.ip-address-page .ip-related-pages {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ip-address-page .ip-last-updated {
+  margin-top: 18px;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  text-align: right;
+}
+
+/* DHCP article additions */
+.dhcp-page code {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.dhcp-page .dhcp-config-example {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 20px 0 24px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-divider);
+}
+
+.dhcp-page .dhcp-config-example > div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 17px 18px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.dhcp-page .dhcp-config-example span {
+  color: var(--vp-c-text-2);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.dhcp-page .dhcp-config-example code {
+  font-size: .82rem;
+  white-space: nowrap;
+}
+
+.dhcp-page .dhcp-config-example--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 640px;
+}
+
+.dhcp-page .dhcp-comparison .comparison-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.dhcp-page .dhcp-comparison .comparison-label {
+  align-self: flex-start;
+}
+
+.dhcp-page .dhcp-comparison .comparison-card__content {
+  min-height: 190px;
+  margin-top: 12px;
+}
+
+.dhcp-page .dhcp-compare-visual {
+  min-height: 230px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.dhcp-page .dhcp-compare-visual svg {
+  display: block;
+  width: 100%;
+  height: 230px;
+  fill: none;
+  stroke: #687078;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dhcp-page .dhcp-compare-visual text {
+  fill: var(--vp-c-text-1);
+  stroke: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-figure-label {
+  fill: var(--vp-c-text-2);
+  font-size: 12px;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-manual-line {
+  stroke: #d98984;
+  stroke-dasharray: 5 5;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-auto-line {
+  stroke: #2f6fba;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-settings-bundle rect {
+  fill: rgba(37, 99, 235, .065);
+  stroke: #2f6fba;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-settings-bundle text {
+  fill: var(--vp-c-text-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dhcp-page .dhcp-compare-visual .dhcp-settings-bundle .dhcp-bundle-title {
+  fill: #005a9e;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+.dhcp-page .dhcp-scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 22px 0;
+}
+
+.dhcp-page .dhcp-scenario-grid .scenario-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  margin: 0;
+}
+
+.dhcp-page .dhcp-scenario-grid .scenario-card > p:not(.scenario-kicker):not(.scenario-point) {
+  margin: 0 0 12px;
+}
+
+.dhcp-page .dhcp-scenario-grid .scenario-kicker,
+.ip-address-page .ip-scenario-grid .scenario-kicker {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.dhcp-page .dhcp-scenario-grid .scenario-point {
+  margin-top: auto;
+}
+
+.dhcp-page .dhcp-network-move {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.dhcp-page .dhcp-network-move code {
+  white-space: nowrap;
+}
+
+.dhcp-page .dhcp-network-move span {
+  color: var(--vp-c-text-3);
+}
+
+.dhcp-page .dhcp-distribution-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.dhcp-page .dhcp-distribution-grid > div {
+  position: relative;
+  grid-column: span 2;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-distribution-grid > div:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.dhcp-page .dhcp-distribution-grid > div:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.dhcp-page .dhcp-distribution-grid > div > span,
+.dhcp-page .dhcp-admin-checks > div > span,
+.dhcp-page .dhcp-trouble-grid > div > span {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  font-size: .74rem;
+  font-weight: 800;
+}
+
+.dhcp-page .dhcp-distribution-grid h3,
+.dhcp-page .dhcp-admin-checks h3,
+.dhcp-page .dhcp-trouble-grid h3 {
+  margin: 10px 0 8px;
+  font-size: .98rem;
+}
+
+.dhcp-page .dhcp-distribution-grid p,
+.dhcp-page .dhcp-admin-checks p,
+.dhcp-page .dhcp-trouble-grid p {
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: .91rem;
+  line-height: 1.7;
+}
+
+.dhcp-page .dhcp-apipa-expansion {
+  margin-left: 2px;
+  color: var(--vp-c-text-3);
+  font-size: .74rem;
+}
+
+.dhcp-page .dhcp-dora-panel {
+  padding: 24px;
+}
+
+.dhcp-page .dhcp-dora-flow {
+  display: grid;
+  gap: 12px;
+}
+
+.dhcp-page .dhcp-dora-row {
+  display: grid;
+  min-height: 126px;
+  grid-template-columns: 32px 112px minmax(0, 1fr) 112px;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-dora-number {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #2f6fba;
+  font-size: .76rem;
+  font-weight: 800;
+}
+
+.dhcp-page .dhcp-dora-row .dhcp-dora-endpoint {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  text-align: center;
+}
+
+.dhcp-page .dhcp-dora-row .dhcp-dora-endpoint svg,
+.dhcp-page .dhcp-relay-flow svg {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: #2f6fba;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dhcp-page .dhcp-dora-exchange {
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+  align-content: center;
+  text-align: center;
+}
+
+.dhcp-page .dhcp-dora-exchange strong,
+.dhcp-page .dhcp-dora-exchange small {
+  display: block;
+}
+
+.dhcp-page .dhcp-dora-exchange small {
+  margin-top: 2px;
+  color: var(--vp-c-text-3);
+  font-size: .72rem;
+  font-weight: 600;
+}
+
+.dhcp-page .dhcp-dora-exchange p {
+  margin: 3px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: .84rem;
+}
+
+.dhcp-page .dhcp-dora-exchange > i {
+  position: relative;
+  display: block;
+  width: calc(100% - 24px);
+  height: 2px;
+  margin-inline: auto;
+  background: #2f6fba;
+}
+
+.dhcp-page .dhcp-dora-exchange > i::after {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-block: 6px solid transparent;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.dhcp-page .dhcp-dora-row.is-to-server .dhcp-dora-exchange > i::after {
+  right: 0;
+  border-left: 9px solid #2f6fba;
+}
+
+.dhcp-page .dhcp-dora-row.is-to-client .dhcp-dora-exchange > i::after {
+  left: 0;
+  border-right: 9px solid #2f6fba;
+}
+
+.dhcp-page .dhcp-lease-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 760px;
+  margin: 22px 0;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-divider);
+}
+
+.dhcp-page .dhcp-lease-card > div {
+  display: grid;
+  gap: 6px;
+  padding: 18px 20px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-lease-card > div span {
+  color: var(--vp-c-text-2);
+  font-size: .78rem;
+}
+
+.dhcp-page .dhcp-lease-card > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 18px 20px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  line-height: 1.75;
+}
+
+.dhcp-page .dhcp-scope-figure {
+  display: grid;
+  gap: 24px;
+}
+
+.dhcp-page .dhcp-scope-settings {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.dhcp-page .dhcp-scope-settings h4 {
+  margin: 0;
+  border: 0;
+  color: var(--vp-c-text-2);
+  font-size: .82rem;
+}
+
+.dhcp-page .dhcp-scope-settings > div {
+  display: grid;
+  width: min(100%, 470px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dhcp-page .dhcp-scope-settings p {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.dhcp-page .dhcp-scope-settings span {
+  color: var(--vp-c-text-2);
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.dhcp-page .dhcp-address-space {
+  display: grid;
+  width: 100%;
+  max-width: 860px;
+  gap: 8px;
+  margin-inline: auto;
+}
+
+.dhcp-page .dhcp-address-scale {
+  display: grid;
+  grid-template-columns: auto minmax(30px, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.dhcp-page .dhcp-address-scale span {
+  height: 1px;
+  background: var(--vp-c-divider);
+}
+
+.dhcp-page .dhcp-address-scale code,
+.dhcp-page .dhcp-address-bar code {
+  white-space: nowrap;
+}
+
+.dhcp-page .dhcp-address-bar {
+  display: grid;
+  grid-template-columns: 30fr 37fr 33fr;
+  min-height: 158px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 11px;
+}
+
+.dhcp-page .dhcp-address-bar > div {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+  align-content: center;
+  justify-items: center;
+  padding: 18px 12px;
+  text-align: center;
+}
+
+.dhcp-page .dhcp-scope-panel .diagram-caption {
+  width: 100%;
+  max-width: none;
+}
+
+.dhcp-page .dhcp-address-bar .is-before,
+.dhcp-page .dhcp-address-bar .is-after {
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg);
+}
+
+.dhcp-page .dhcp-address-bar .is-pool {
+  border-inline: 2px solid rgba(37, 99, 235, .45);
+  color: #005a9e;
+  background: rgba(37, 99, 235, .095);
+}
+
+.dhcp-page .dhcp-address-bar .is-pool > strong {
+  font-size: 1.05rem;
+}
+
+.dhcp-page .dhcp-address-bar .is-pool code {
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.dhcp-page .dhcp-address-bar .is-before strong,
+.dhcp-page .dhcp-address-bar .is-after strong {
+  color: var(--vp-c-text-2);
+  font-size: .84rem;
+}
+
+.dhcp-page .dhcp-address-bar small {
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.dhcp-page .dhcp-exclusion {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  padding: 7px 2px;
+  border: 1px solid rgba(190, 24, 93, .24);
+  border-radius: 7px;
+  color: #9f1239;
+  background: repeating-linear-gradient(135deg, rgba(225, 29, 72, .1) 0 7px, rgba(255, 255, 255, .34) 7px 14px);
+  text-align: center;
+}
+
+.dhcp-page .dhcp-exclusion span {
+  font-size: .74rem;
+  font-weight: 800;
+}
+
+.dhcp-page .dhcp-exclusion code {
+  display: block;
+  justify-self: center;
+  color: inherit;
+  background: transparent;
+  font-size: .76rem;
+}
+
+.dhcp-page .dhcp-reservation-flow,
+.dhcp-page .dhcp-relay-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.dhcp-page .dhcp-reservation-flow > span {
+  display: grid;
+  min-width: 180px;
+  min-height: 78px;
+  place-content: center;
+  padding: 14px 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.dhcp-page .dhcp-reservation-flow > span.is-result {
+  border-color: rgba(37, 99, 235, .4);
+  color: #005a9e;
+  background: rgba(37, 99, 235, .07);
+  font-weight: 800;
+}
+
+.dhcp-page .dhcp-reservation-flow > i,
+.dhcp-page .dhcp-relay-flow > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-size: 1.5rem;
+  font-style: normal;
+}
+
+.dhcp-page .dhcp-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.dhcp-page .dhcp-choice-grid > div {
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-choice-grid h3,
+.dhcp-page .dhcp-choice-grid p {
+  margin-top: 0;
+}
+
+.dhcp-page .dhcp-choice-grid p {
+  color: var(--vp-c-text-2);
+}
+
+.dhcp-page .dhcp-relay-flow > div {
+  display: grid;
+  min-width: 190px;
+  min-height: 150px;
+  gap: 6px;
+  place-content: center;
+  justify-items: center;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.dhcp-page .dhcp-relay-flow span {
+  color: var(--vp-c-text-2);
+  font-size: .8rem;
+}
+
+.dhcp-page .dhcp-admin-checks,
+.dhcp-page .dhcp-trouble-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.dhcp-page .dhcp-admin-checks > div,
+.dhcp-page .dhcp-trouble-grid > div {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-admin-checks > div:last-child,
+.dhcp-page .dhcp-trouble-grid > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.dhcp-page .dhcp-admin-process {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dhcp-page .dhcp-command-list {
+  margin: 22px 0;
+  padding: 0 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.dhcp-page .dhcp-command-list > div {
+  display: grid;
+  grid-template-columns: minmax(210px, .75fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: start;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.dhcp-page .dhcp-command-list > div:last-child {
+  border-bottom: 0;
+}
+
+.dhcp-page .dhcp-command-list p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+
+.dhcp-page .dhcp-related-pages {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dhcp-page .dhcp-last-updated {
   margin: 18px 0 0;
   color: var(--vp-c-text-2);
   font-size: 14px;
@@ -2340,7 +3751,8 @@
     grid-template-columns: 1fr;
   }
 
-  .gpo-page .standard-comparison {
+  .gpo-page .standard-comparison,
+  .dhcp-page .standard-comparison {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2368,12 +3780,9 @@
     gap: 20px;
   }
 
-  .wsus-meta-standard > div:nth-child(3) {
+  .wsus-meta-standard > div:last-child {
+    grid-column: 1 / -1;
     border-left: 0;
-    border-top: 1px solid var(--vp-c-divider);
-  }
-
-  .wsus-meta-standard > div:nth-child(4) {
     border-top: 1px solid var(--vp-c-divider);
   }
 
@@ -2431,10 +3840,44 @@
   .dns-page .dns-admin-checks > div:last-child {
     grid-column: 1 / -1;
   }
+
+  .dhcp-page .dhcp-distribution-grid,
+  .dhcp-page .dhcp-admin-checks,
+  .dhcp-page .dhcp-trouble-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dhcp-page .dhcp-distribution-grid > div,
+  .dhcp-page .dhcp-distribution-grid > div:nth-child(4),
+  .dhcp-page .dhcp-distribution-grid > div:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .dhcp-page .dhcp-distribution-grid > div:last-child,
+  .dhcp-page .dhcp-admin-checks > div:last-child,
+  .dhcp-page .dhcp-trouble-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .ip-address-page .ip-admin-checks,
+  .ip-address-page .ip-trouble-grid,
+  .ip-address-page .ip-admin-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ip-address-page .ip-admin-checks > div:last-child,
+  .ip-address-page .ip-trouble-grid > div:last-child {
+    grid-column: 1 / -1;
+  }
+
 }
 
 @media (max-width: 820px) {
   .home-page .kb-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ip-address-page .ip-setting-overview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2494,6 +3937,8 @@
   }
 
   .dns-page .dns-scenario-grid,
+  .dns-page .dns-server-types,
+  .dns-page .dns-answer-flow__branches,
   .dns-page .dns-record-grid,
   .dns-page .dns-admin-checks,
   .dns-page .dns-admin-process,
@@ -2501,6 +3946,50 @@
   .dns-page .dns-related-pages,
   .dns-page .dns-factor-list {
     grid-template-columns: 1fr;
+  }
+
+  .dhcp-page .dhcp-scenario-grid,
+  .dhcp-page .dhcp-admin-process,
+  .dhcp-page .dhcp-admin-checks,
+  .dhcp-page .dhcp-trouble-grid,
+  .dhcp-page .dhcp-related-pages {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-scenario-grid,
+  .ip-address-page .ip-admin-checks,
+  .ip-address-page .ip-trouble-grid,
+  .ip-address-page .ip-admin-process,
+  .ip-address-page .ip-related-pages {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-admin-checks > div:last-child,
+  .ip-address-page .ip-trouble-grid > div:last-child {
+    grid-column: auto;
+  }
+
+  .dhcp-page .dhcp-admin-checks > div:last-child,
+  .dhcp-page .dhcp-trouble-grid > div:last-child {
+    grid-column: auto;
+  }
+
+  .dhcp-page .dhcp-dora-row {
+    grid-template-columns: 28px 92px minmax(0, 1fr) 92px;
+    gap: 10px;
+    padding-inline: 12px;
+  }
+
+  .dhcp-page .dhcp-relay-flow {
+    flex-direction: column;
+  }
+
+  .dhcp-page .dhcp-relay-flow > div {
+    min-height: 130px;
+  }
+
+  .dhcp-page .dhcp-relay-flow > i {
+    transform: rotate(90deg);
   }
 
 }
@@ -2559,8 +4048,82 @@
     padding: 6px 18px;
   }
 
+  .wsus-meta-standard > div:last-child {
+    grid-column: auto;
+  }
+
   .standard-comparison .comparison-card {
     padding: 22px;
+  }
+
+  .ip-address-page .ip-basic-route,
+  .ip-address-page .ip-gateway-panel section > div,
+  .ip-address-page .ip-nat-flow {
+    flex-direction: column;
+  }
+
+  .ip-address-page .ip-basic-route i,
+  .ip-address-page .ip-gateway-panel i {
+    transform: rotate(90deg);
+  }
+
+  .ip-address-page .ip-nat-flow > i {
+    transform: rotate(90deg);
+  }
+
+  .ip-address-page .ip-gateway-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-setting-overview,
+  .ip-address-page .ip-adapter-note > div,
+  .ip-address-page .ip-reserved-address-note > div,
+  .ip-address-page .ip-gateway-config-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-gateway-example-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-gateway-example-flow > i {
+    transform: rotate(90deg);
+  }
+
+  .ip-address-page .ip-basic-route > div,
+  .ip-address-page .ip-gateway-panel span {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ip-address-page .ip-octets {
+    gap: 4px;
+  }
+
+  .ip-address-page .ip-octets code {
+    min-width: 0;
+    flex: 1;
+    padding-inline: 6px;
+  }
+
+  .ip-address-page .ip-cidr-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-impact-grid,
+  .ip-address-page .ip-type-grid,
+  .ip-address-page .ip-special-grid,
+  .ip-address-page .ip-network-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-address-page .ip-command-list {
+    padding-inline: 18px;
+  }
+
+  .ip-address-page .ip-command-list > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .comparison-card__body {
@@ -2627,6 +4190,14 @@
     transform: rotate(90deg);
   }
 
+  .dns-page .dns-forwarder-flow {
+    flex-direction: column;
+  }
+
+  .dns-page .dns-forwarder-flow > i {
+    transform: rotate(90deg);
+  }
+
   .dns-page .dns-server-addresses,
   .dns-page .dns-cache-grid,
   .dns-page .dns-ttl-comparison,
@@ -2679,5 +4250,102 @@
     width: 24px;
     justify-self: center;
     transform: rotate(90deg);
+  }
+
+  .dhcp-page .dhcp-config-example,
+  .dhcp-page .dhcp-config-example--compact,
+  .dhcp-page .dhcp-distribution-grid,
+  .dhcp-page .dhcp-choice-grid,
+  .dhcp-page .dhcp-lease-card {
+    grid-template-columns: 1fr;
+  }
+
+  .dhcp-page .dhcp-distribution-grid > div:last-child,
+  .dhcp-page .dhcp-lease-card > p {
+    grid-column: auto;
+  }
+
+  .dhcp-page .dhcp-comparison .comparison-card__content {
+    min-height: 0;
+  }
+
+  .dhcp-page .dhcp-compare-visual {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .dhcp-page .dhcp-compare-visual svg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .dhcp-page .dhcp-compare-visual {
+    height: auto;
+  }
+
+  .dhcp-page .dhcp-dora-panel,
+  .dhcp-page .dhcp-scope-panel,
+  .dhcp-page .dhcp-relay-panel {
+    padding-inline: 18px;
+  }
+
+  .dhcp-page .dhcp-dora-row {
+    min-height: 170px;
+    grid-template-columns: 26px 62px minmax(0, 1fr) 62px;
+    gap: 6px;
+    padding: 12px 8px;
+  }
+
+  .dhcp-page .dhcp-dora-row .dhcp-dora-endpoint svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .dhcp-page .dhcp-dora-row .dhcp-dora-endpoint strong {
+    font-size: .68rem;
+    line-height: 1.35;
+  }
+
+  .dhcp-page .dhcp-scope-settings > div,
+  .dhcp-page .dhcp-address-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .dhcp-page .dhcp-address-bar > div {
+    min-height: 104px;
+  }
+
+  .dhcp-page .dhcp-address-bar .is-pool {
+    min-height: 168px;
+  }
+
+  .dhcp-page .dhcp-address-bar .is-pool {
+    border-top: 1px solid rgba(37, 99, 235, .28);
+    border-right: 0;
+    border-bottom: 1px solid rgba(37, 99, 235, .28);
+    border-left: 0;
+  }
+
+  .dhcp-page .dhcp-reservation-flow {
+    flex-direction: column;
+  }
+
+  .dhcp-page .dhcp-reservation-flow > span {
+    min-width: 0;
+  }
+
+  .dhcp-page .dhcp-reservation-flow > i {
+    transform: rotate(90deg);
+  }
+
+  .dhcp-page .dhcp-command-list {
+    padding-inline: 18px;
+  }
+
+  .dhcp-page .dhcp-command-list > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }

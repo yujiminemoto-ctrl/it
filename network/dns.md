@@ -12,7 +12,6 @@ lastUpdated: false
 <p class="article-summary">DNSは、サーバー名やWebサイトの名前を、通信に必要なIPアドレスへ変換する仕組みです。社内ITの業務では、「IPアドレスでは接続できるのに、サーバー名では接続できない」「DNSレコードを変更したのに、古い接続先へアクセスしてしまう」といったトラブルを正しく切り分けるために、DNSの基本理解が欠かせません。</p>
 
 <div class="wsus-meta-standard">
-  <div><span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-7 17c.7-4.1 3.2-6.2 7-6.2s6.3 2.1 7 6.2"/></svg></span><span>対象</span><strong>管理者</strong></div>
   <div><span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 4.5 6.2 4.5 9S15 17.8 12 21M12 3c-3 3.2-4.5 6.2-4.5 9S9 17.8 12 21"/></svg></span><span>対象環境</span><strong>社内ネットワーク、Windows<br>Linux、クラウド環境</strong></div>
   <div><span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span>読了目安</span><strong>15～20分</strong></div>
   <div><span class="wsus-meta-standard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg></span><span>更新基準</span><strong>2026年8月</strong></div>
@@ -82,13 +81,44 @@ DNSが成功しても、必ず接続できるとは限りません。DNSは接�
 
 <div class="dns-server-addresses"><div><span>優先DNSサーバー</span><strong>192.168.10.10</strong></div><div><span>代替DNSサーバー</span><strong>192.168.10.11</strong></div></div>
 
-<div class="scenario-flow dns-query-flow"><span>クライアントPC</span><b>→</b><span>社内DNSサーバー</span><b>→</b><span>上位DNSサーバーなど</span><b>→</b><span>回答</span></div>
+#### DNSサーバーはどこにあるのか
 
-社内DNSサーバーが回答を持っていない場合は、フォワーダーや上位のDNSサーバーなどへ問い合わせます。
+DNSサーバーは、自社で用意することも、外部のDNSサービスを利用することもできます。家庭や一般的なインターネット接続では、プロバイダーが提供するDNSサーバーや、Google Public DNS（8.8.8.8）などのパブリックDNSを利用できます。
+
+一方、社内ネットワークでは、社内システムやActive Directoryなどで使用する名前を解決するために、社内DNSサーバーを利用している場合があります。
+
+<div class="dns-server-types">
+<div><h4>社内DNS</h4><p>社内で管理している名前を解決できます。</p><div class="dns-server-type-example"><code>fileserver.corp.example.com</code><span>↓</span><code>192.168.10.20</code></div><small>社内システムやActive Directoryで使用されることがあります。</small></div>
+<div><h4>パブリックDNS</h4><p>インターネット上で公開されている名前を解決するために利用できます。</p><div class="dns-server-type-example"><strong>Google Public DNS</strong><code>8.8.8.8</code></div><small>外部から提供される再帰DNSサービスの一例です。</small></div>
+</div>
+
+#### 社内DNSが名前を解決する流れ
+
+社内DNSサーバーは、自分が管理している名前には直接回答します。回答を持っていない外部の名前は、自身で再帰問い合わせを行うか、別のDNSサーバーへ問い合わせを転送します。
+
+<div class="dns-answer-flow">
+<div class="dns-answer-flow__start"><span>クライアントPC</span><i>↓</i><span>社内DNSサーバー</span><i>↓</i><strong>この名前を知っている？</strong></div>
+<div class="dns-answer-flow__branches">
+<div><b>知っている</b><i>↓</i><span>社内DNSが直接回答</span><i>↓</i><code>fileserver.corp.example.com</code><i>↓</i><code class="is-result">192.168.10.20</code></div>
+<div><b>知らない</b><i>↓</i><span>自分で再帰問い合わせ またはフォワーダーへ転送</span><i>↓</i><span>回答を取得</span><i>↓</i><span class="is-result">クライアントへ返す</span></div>
+</div>
+</div>
 
 #### 再帰問い合わせ
 
-クライアントの代わりに、DNSサーバーが必要な問い合わせを続け、最終的な回答を返す処理を再帰問い合わせと呼びます。外部の名前を調べる場合、DNSサーバーは複数のDNSサーバーへ順番に問い合わせることがあります。
+クライアントの代わりに、DNSサーバーが必要な問い合わせを行い、最終的な回答を返す処理を再帰問い合わせと呼びます。社内DNSサーバー自身が再帰問い合わせを行う構成もあります。
+
+<div class="standard-callout"><strong>Google Public DNSの位置付け</strong><p>Google Public DNS（8.8.8.8）は、クライアントの代わりにDNSの問い合わせを行う「再帰DNSサーバー（リゾルバー）」の一例です。社内DNSサーバーが外部の名前を調べるときに、8.8.8.8などへ問い合わせを転送する構成もありますが、すべての環境で利用されるわけではありません。</p></div>
+
+#### フォワーダー
+
+DNSサーバーが自分で回答できない問い合わせを、別のDNSサーバーへ転送する仕組みです。
+
+<div class="dns-forwarder-flow"><span>クライアントPC</span><i>→</i><span>社内DNS</span><i>→</i><span>フォワーダー<small>例：8.8.8.8</small></span><i>→</i><span>回答</span></div>
+
+ただし、環境によっては社内DNS自身が再帰問い合わせを行う構成もあります。
+
+<div class="standard-callout standard-callout--key"><strong>社内PCのDNS設定を安易に変更しない</strong><p>社内PCのDNSサーバーを8.8.8.8などのパブリックDNSへ変更すると、インターネット上の名前は解決できても、社内システムやActive Directoryで使用する名前が解決できなくなる場合があります。DNSのトラブルを確認するときは、まず「どのDNSサーバーを参照しているか」を確認します。</p></div>
 
 ### キャッシュとTTL
 

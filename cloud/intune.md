@@ -1,5 +1,5 @@
 # Microsoft Intune
-<div class="lesson-meta"><span>クラウド</span><span>端末管理</span><span>初級</span><span>約20分</span></div>
+<div class="lesson-meta"><span>クラウド</span><span>端末管理</span><span>初級</span><span>15～20分</span></div>
 <div class="lesson-lead">Microsoft Intuneは、会社のPCやスマートフォンに設定を配布し、状態を確認し、アプリやセキュリティを管理するクラウドサービスです。</div>
 
 ## 管理できること
