@@ -2751,6 +2751,247 @@
   text-align: right;
 }
 
+/* Windows Update article */
+.windows-update-page .windows-update-flow,
+.windows-update-page .windows-update-mini-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr) 24px) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 7px;
+  margin: 20px 0 26px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.windows-update-page .windows-update-flow > span,
+.windows-update-page .windows-update-mini-flow > span {
+  display: grid;
+  min-width: 0;
+  min-height: 64px;
+  place-content: center;
+  padding: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.windows-update-page .windows-update-flow > i,
+.windows-update-page .windows-update-mini-flow > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+  text-align: center;
+}
+
+.windows-update-page .windows-update-flow--vertical {
+  width: min(620px, 100%);
+  grid-template-columns: 1fr;
+  margin-inline: auto;
+}
+
+.windows-update-page .windows-update-flow--overview {
+  grid-template-columns: repeat(3, minmax(0, 1fr) 24px) minmax(0, 1fr);
+}
+
+.windows-update-page .windows-update-purpose-grid,
+.windows-update-page .windows-update-scenario-grid,
+.windows-update-page .windows-update-type-grid,
+.windows-update-page .windows-update-two-card,
+.windows-update-page .windows-update-check-list,
+.windows-update-page .windows-update-related {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 26px;
+}
+
+.windows-update-page .windows-update-purpose-grid > div,
+.windows-update-page .windows-update-type-grid > div,
+.windows-update-page .windows-update-two-card > div,
+.windows-update-page .windows-update-check-list > div,
+.windows-update-page .windows-update-definition,
+.windows-update-page .windows-update-management > div,
+.windows-update-page .windows-update-management-notes > div {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 11px;
+  background: var(--vp-c-bg-soft);
+}
+
+.windows-update-page .windows-update-purpose-grid strong,
+.windows-update-page .windows-update-type-grid strong,
+.windows-update-page .windows-update-two-card strong,
+.windows-update-page .windows-update-check-list strong,
+.windows-update-page .windows-update-management strong,
+.windows-update-page .windows-update-management-notes strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.windows-update-page .windows-update-purpose-grid p,
+.windows-update-page .windows-update-type-grid p,
+.windows-update-page .windows-update-two-card p,
+.windows-update-page .windows-update-check-list p,
+.windows-update-page .windows-update-definition p,
+.windows-update-page .windows-update-management p,
+.windows-update-page .windows-update-management-notes p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+}
+
+.windows-update-page .windows-update-risk-list,
+.windows-update-page .windows-update-history-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.windows-update-page .windows-update-risk-list > span,
+.windows-update-page .windows-update-history-list > span {
+  display: grid;
+  min-height: 58px;
+  place-content: center;
+  padding: 10px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.windows-update-page .windows-update-scenario-grid {
+  align-items: stretch;
+}
+
+.windows-update-page .windows-update-scenario-grid .scenario-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+}
+
+.windows-update-page .windows-update-scenario-grid .scenario-kicker {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.windows-update-page .windows-update-scenario-grid ol {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+  padding-left: 1.7rem;
+}
+
+.windows-update-page .windows-update-scenario-grid .scenario-point {
+  margin-top: auto;
+}
+
+.windows-update-page .windows-update-type-grid code {
+  display: block;
+  width: fit-content;
+  margin: 12px 0;
+  white-space: nowrap;
+}
+
+.windows-update-page .windows-update-mini-flow {
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1.35fr);
+}
+
+.windows-update-page .windows-update-management,
+.windows-update-page .windows-update-management-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 26px;
+}
+
+.windows-update-page .windows-update-management small {
+  display: block;
+  margin-top: 9px;
+  color: var(--vp-c-text-2);
+  line-height: 1.55;
+}
+
+.windows-update-page .windows-update-admin-grid,
+.windows-update-page .windows-update-process,
+.windows-update-page .windows-update-trouble-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.windows-update-page .windows-update-trouble-grid > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.windows-update-page .windows-update-check-list code {
+  display: block;
+  margin: 7px 0 10px;
+  white-space: normal;
+}
+
+.windows-update-page .windows-update-last-updated {
+  margin: 28px 0 0;
+  color: var(--vp-c-text-3);
+  font-size: .82rem;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .windows-update-page .windows-update-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .windows-update-page .windows-update-flow > i {
+    transform: rotate(90deg);
+  }
+
+  .windows-update-page .windows-update-flow--vertical > i {
+    transform: none;
+  }
+
+  .windows-update-page .windows-update-management,
+  .windows-update-page .windows-update-management-notes,
+  .windows-update-page .windows-update-admin-grid,
+  .windows-update-page .windows-update-process,
+  .windows-update-page .windows-update-trouble-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .windows-update-page .windows-update-trouble-grid > div:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .windows-update-page .windows-update-purpose-grid,
+  .windows-update-page .windows-update-scenario-grid,
+  .windows-update-page .windows-update-type-grid,
+  .windows-update-page .windows-update-two-card,
+  .windows-update-page .windows-update-check-list,
+  .windows-update-page .windows-update-related,
+  .windows-update-page .windows-update-management,
+  .windows-update-page .windows-update-management-notes,
+  .windows-update-page .windows-update-admin-grid,
+  .windows-update-page .windows-update-process,
+  .windows-update-page .windows-update-trouble-grid,
+  .windows-update-page .windows-update-risk-list,
+  .windows-update-page .windows-update-history-list {
+    grid-template-columns: 1fr;
+  }
+
+  .windows-update-page .windows-update-mini-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .windows-update-page .windows-update-mini-flow > i {
+    transform: rotate(90deg);
+  }
+}
+
 /* Network structure article additions */
 .network-structure-page code {
   overflow-wrap: normal;
