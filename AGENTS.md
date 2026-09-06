@@ -198,6 +198,8 @@ Reading time must use one of these ranges: 5～10分, 10～15分, 15～20分, or
 
 Do not add「対象：管理者」by default. Reintroduce「対象」only when the intended audience materially differs by page, such as 利用者向け, ヘルプデスク向け, ネットワーク管理者向け, or サーバー管理者向け.
 
+When creating a new knowledge page or materially updating an existing one, set「更新基準」from the year and month when the user issued the request. Do not copy an older date from another page or template.
+
 
 
 \---

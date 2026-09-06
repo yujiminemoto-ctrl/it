@@ -2992,6 +2992,571 @@
   }
 }
 
+/* Routing article */
+.routing-page code {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.routing-page .routing-overview-grid,
+.routing-page .routing-scenario-grid,
+.routing-page .routing-role-grid,
+.routing-page .routing-command-detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 26px;
+}
+
+.routing-page .routing-overview-grid > div,
+.routing-page .routing-role-grid > div,
+.routing-page .routing-command-detail > div,
+.routing-page .routing-definition {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-overview-grid > div > strong,
+.routing-page .routing-role-grid strong,
+.routing-page .routing-command-detail > div > strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.routing-page .routing-overview-grid p,
+.routing-page .routing-role-grid p,
+.routing-page .routing-command-detail p,
+.routing-page .routing-definition p {
+  margin: 10px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-inline-flow,
+.routing-page .routing-path {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+}
+
+.routing-page .routing-inline-flow {
+  margin: 14px 0;
+}
+
+.routing-page .routing-inline-flow > span,
+.routing-page .routing-path > span {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.routing-page .routing-inline-flow > i,
+.routing-page .routing-path > i {
+  align-self: center;
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.routing-page .routing-overview-grid > div:nth-child(2) .routing-inline-flow > span:nth-of-type(2) {
+  flex-grow: 1.3;
+  white-space: nowrap;
+}
+
+.routing-page .routing-note {
+  margin: 16px 0 24px;
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-network-tags {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.routing-page .routing-network-tags span {
+  padding: 10px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.routing-page .routing-path {
+  margin: 20px 0 24px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-path > span code,
+.routing-page .routing-path > span small {
+  display: block;
+  margin-top: 6px;
+}
+
+.routing-page .routing-path .is-router {
+  border-color: rgba(37, 99, 235, .45);
+  background: rgba(37, 99, 235, .06);
+}
+
+.routing-page .routing-path .is-firewall {
+  border-color: rgba(217, 119, 6, .42);
+  background: rgba(245, 158, 11, .06);
+}
+
+.routing-page .routing-path > .routing-default-route {
+  display: flex;
+  min-width: 128px;
+  align-items: center;
+  flex-direction: column;
+  gap: 3px;
+  transform: none;
+}
+
+.routing-page .routing-default-route small {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.routing-page .routing-default-route b {
+  color: var(--vp-c-brand-1);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.routing-page .routing-scenario-grid {
+  align-items: stretch;
+}
+
+.routing-page .routing-scenario-grid .scenario-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+}
+
+.routing-page .routing-scenario-grid .scenario-kicker {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.routing-page .routing-flow-title {
+  margin: 18px 0 10px;
+  font-weight: 700;
+}
+
+.routing-page .routing-check-flow {
+  display: grid;
+  gap: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.routing-page .routing-check-flow li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  padding: 7px 0;
+}
+
+.routing-page .routing-check-flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  bottom: -4px;
+  left: 13px;
+  width: 1px;
+  background: rgba(37, 99, 235, .28);
+}
+
+.routing-page .routing-check-flow li > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(37, 99, 235, .4);
+  border-radius: 50%;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.routing-page .routing-check-flow p {
+  margin: 2px 0 0;
+}
+
+.routing-page .routing-scenario-grid .scenario-point {
+  margin-top: auto;
+}
+
+.routing-page .routing-address-grid,
+.routing-page .routing-specific-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.routing-page .routing-address-grid > div,
+.routing-page .routing-specific-grid > div {
+  display: flex;
+  min-width: 0;
+  min-height: 126px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.routing-page .routing-address-grid code,
+.routing-page .routing-specific-grid code {
+  margin: 8px 0;
+  white-space: nowrap;
+}
+
+.routing-page .routing-address-grid p {
+  margin: 4px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-address-grid .is-same {
+  border-color: rgba(22, 163, 74, .35);
+}
+
+.routing-page .routing-address-grid .is-other,
+.routing-page .routing-specific-grid .is-result {
+  border-color: rgba(37, 99, 235, .42);
+  background: rgba(37, 99, 235, .055);
+}
+
+.routing-page .routing-decision-flow {
+  display: grid;
+  width: min(620px, 100%);
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 20px auto 24px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-decision-flow span {
+  padding: 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.routing-page .routing-decision-flow i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 800;
+  text-align: center;
+}
+
+.routing-page .vp-doc table {
+  width: min(760px, 100%);
+  margin: 20px auto 24px;
+}
+
+.routing-page .vp-doc table code {
+  white-space: nowrap;
+}
+
+.routing-page .routing-specific-grid span,
+.routing-page .routing-specific-grid strong {
+  display: block;
+}
+
+.routing-page .routing-specific-grid span {
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+}
+
+.routing-page .routing-definition code {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 14px auto;
+  white-space: normal;
+}
+
+.routing-page .routing-round-trip {
+  display: grid;
+  width: min(700px, 100%);
+  grid-template-columns: minmax(90px, 1fr) minmax(220px, 3fr) minmax(90px, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin: 20px auto 24px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-round-trip > span {
+  padding: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.routing-page .routing-round-trip__lines {
+  display: grid;
+  gap: 12px;
+}
+
+.routing-page .routing-round-trip__lines p {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  margin: 0;
+}
+
+.routing-page .routing-round-trip__lines p + p {
+  grid-template-columns: minmax(0, 1fr) 42px;
+}
+
+.routing-page .routing-round-trip__lines small {
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+.routing-page .routing-round-trip__lines i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.routing-page .routing-role-grid > div {
+  text-align: center;
+}
+
+.routing-page .routing-command-detail pre {
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.routing-page .routing-command-detail > div > code {
+  display: block;
+  width: fit-content;
+  margin: 12px 0;
+}
+
+.routing-page .routing-command-detail h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.routing-page .routing-route-examples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0 24px;
+}
+
+.routing-page .routing-route-examples > div {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-route-examples p {
+  margin: 9px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-return-flow {
+  max-width: 760px;
+}
+
+.routing-page .routing-return-example {
+  margin-top: 4px;
+}
+
+.routing-page .routing-return-example code,
+.routing-page .routing-return-commands p code {
+  display: inline;
+  width: auto;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.routing-page .routing-command-grid.routing-return-commands {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.routing-page .routing-command-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.routing-page .routing-command-grid > div {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.routing-page .routing-command-grid p {
+  margin: 9px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-admin-grid,
+.routing-page .routing-trouble-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.routing-page .routing-related-pages {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.routing-page .routing-related-pending {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+}
+
+.routing-page .routing-related-pending span,
+.routing-page .routing-related-pending strong {
+  display: block;
+}
+
+.routing-page .routing-related-pending span {
+  font-size: 12px;
+}
+
+.routing-page .routing-related-pending strong {
+  margin: 5px 0;
+  color: var(--vp-c-text-1);
+}
+
+.routing-page .routing-related-pending p {
+  margin: 0;
+}
+
+.routing-page .routing-last-updated {
+  margin-top: 24px;
+  color: var(--vp-c-text-3);
+  font-size: 14px;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .routing-page .routing-path {
+    flex-direction: column;
+  }
+
+  .routing-page .routing-path > i {
+    transform: rotate(90deg);
+  }
+
+  .routing-page .routing-path > .routing-default-route {
+    transform: none;
+  }
+
+  .routing-page .routing-default-route b {
+    transform: rotate(90deg);
+  }
+
+  .routing-page .routing-admin-grid,
+  .routing-page .routing-trouble-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .routing-page .routing-overview-grid,
+  .routing-page .routing-scenario-grid,
+  .routing-page .routing-role-grid,
+  .routing-page .routing-command-detail,
+  .routing-page .routing-command-grid,
+  .routing-page .routing-route-examples,
+  .routing-page .routing-related-pages,
+  .routing-page .routing-admin-grid,
+  .routing-page .routing-trouble-grid,
+  .routing-page .routing-address-grid,
+  .routing-page .routing-specific-grid,
+  .routing-page .routing-network-tags {
+    grid-template-columns: 1fr;
+  }
+
+  .routing-page .routing-command-grid.routing-return-commands {
+    grid-template-columns: 1fr;
+  }
+
+  .routing-page .routing-inline-flow {
+    flex-direction: column;
+  }
+
+  .routing-page .routing-inline-flow > i {
+    transform: rotate(90deg);
+  }
+
+  .routing-page .routing-round-trip {
+    grid-template-columns: 70px minmax(0, 1fr) 70px;
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .routing-page .routing-round-trip__lines {
+    gap: 9px;
+  }
+
+  .routing-page .routing-round-trip__lines p,
+  .routing-page .routing-round-trip__lines p + p {
+    grid-template-columns: 1fr;
+  }
+
+  .routing-page .routing-round-trip__lines p + p small {
+    grid-row: 1;
+  }
+
+  .routing-page .routing-round-trip__lines p + p i {
+    grid-row: 2;
+  }
+}
+
 /* Network structure article additions */
 .network-structure-page code {
   overflow-wrap: normal;
