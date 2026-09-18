@@ -34,7 +34,7 @@ lastUpdated: false
 <div class="registry-tree"><span>Windows・アプリケーション</span><i>↕</i><span>ドライバー</span><i>↕</i><span>ハードウェア</span></div>
 <p>Windowsやアプリケーションは、ドライバーを通じてハードウェアを利用します。正常に使えない場合も、原因が機器本体とは限りません。接続状態、ドライバー、設定、無効化などを順番に確認します。</p>
 
-## デバイスマネージャーはなぜ重要なのか {#why-important}
+## <span class="wsus-section-heading-icon is-green" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-1.2.8-1.6 1.3-1.6 2.55M12 17h.01"/></svg></span>デバイスマネージャーはなぜ重要なのか {#why-important}
 
 <p>有線LANが使えない、Wi-Fiが表示されない、USB機器が認識されない、音が出ない、外部ディスプレイやBluetoothが使えない、といった問い合わせで利用します。</p>
 <div class="registry-card-grid"><div><strong>認識・接続の問題</strong><p>Windowsの認識、USBポートや内部接続などを確認します。</p></div><div><strong>ドライバー・設定の問題</strong><p>ドライバーの動作、無効化、更新後の互換性を確認します。</p></div><div><strong>ほかの原因も考える</strong><p>OS、アプリケーション、Windows設定、ハードウェア側の可能性も切り分けます。</p></div></div>
@@ -45,14 +45,14 @@ lastUpdated: false
 <div class="registry-root-grid"><div><strong>ハードウェア</strong><p>実際の機器です。ネットワークアダプター、ディスプレイアダプター、サウンドデバイス、USB機器、Bluetoothアダプターなどがあります。</p></div><div><strong>ドライバー</strong><p>Windowsがハードウェアを利用するためのソフトウェアです。例えばネットワークアダプターとWindowsの間で、ネットワークドライバーが働きます。</p></div></div>
 <div class="standard-callout standard-callout--key"><strong>機器本体だけでは判断できない</strong><p>ハードウェアが正常でも、対応するドライバーに問題があると正常に利用できない場合があります。</p></div>
 
-## 実際の利用シーン {#typical-scenarios}
+## <span class="wsus-section-heading-icon is-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.4-4.2 2.3-6.3 5.5-6.3s5.1 2.1 5.5 6.3M14.5 14.5c3.5-.4 5.5 1.4 6 5.5"/></svg></span>実際の利用シーン {#typical-scenarios}
 
 <div class="registry-scenario-grid registry-scenario-grid--compact-labels"><div class="scenario-card"><p class="scenario-kicker">利用シーン 01</p><h3>有線LANが突然使えなくなった</h3><p><strong>状況</strong><br>LANケーブルを接続していても、ネットワーク接続を利用できない場合があります。</p><p><strong>具体例</strong><br>「ネットワーク アダプター」の有線LANアダプターに警告マークが表示されている。</p><p class="scenario-point"><strong>確認ポイント</strong><br>認識状態、デバイスの状態、ドライバー、無効化の有無を確認します。</p></div>
 <div class="scenario-card"><p class="scenario-kicker">利用シーン 02</p><h3>USB機器を接続しても使えない</h3><p><strong>状況</strong><br>USBメモリやカメラなどを接続しても認識されない場合があります。</p><p><strong>具体例</strong><br>「不明なデバイス」や警告マーク付きのデバイスが表示される。</p><p class="scenario-point"><strong>確認ポイント</strong><br>機器本体だけでなく、接続状態、USBポート、ドライバーも切り分けます。</p></div>
 <div class="scenario-card"><p class="scenario-kicker">利用シーン 03</p><h3>音が出ない・画面表示がおかしい</h3><p><strong>状況</strong><br>音声や映像の問題には、Windowsの設定だけでなくデバイスやドライバーが関係する場合があります。</p><p><strong>具体例</strong><br>「サウンド、ビデオ、およびゲーム コントローラー」や「ディスプレイ アダプター」で状態を確認する。</p><p class="scenario-point"><strong>確認ポイント</strong><br>対象デバイスがWindowsに正常に認識されているか確認します。</p></div>
 <div class="scenario-card"><p class="scenario-kicker">利用シーン 04</p><h3>ドライバー更新後に不具合が発生した</h3><p><strong>状況</strong><br>Windows Updateやメーカーが提供するドライバーの更新後に、動作が不安定になる場合があります。</p><p><strong>具体例</strong><br>Wi-Fiが不安定になり、変更記録や更新履歴から直前のドライバー更新が分かった。</p><p class="scenario-point"><strong>確認ポイント</strong><br>提供元、バージョン、更新時期を確認し、以前のドライバーに戻せるか確認します。</p></div></div>
 
-## 基本的な仕組み {#how-it-works}
+## <span class="wsus-section-heading-icon is-purple" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1A8 8 0 0 0 14.8 6L14.5 3h-5l-.3 3A8 8 0 0 0 7.5 7L5 6.1 3 9.5 5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.5-1a8 8 0 0 0 1.7 1l.3 3h5l.3-3a8 8 0 0 0 1.7-1l2.5 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></svg></span>基本的な仕組み {#how-it-works}
 
 ### デバイスマネージャーを開く
 
@@ -110,7 +110,7 @@ lastUpdated: false
 
 <p>「表示 → 非表示のデバイスの表示」では、現在接続されていない機器の情報なども表示される場合があります。通常確認の最初の手順ではなく、必要に応じて利用します。非表示だから不要とは限らず、理由を確認せず削除しません。</p>
 
-## 管理者の確認ポイント {#administrator-checks}
+## <span class="wsus-section-heading-icon is-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 12l2.2 2.2 4.8-5"/></svg></span>管理者の確認ポイント {#administrator-checks}
 
 <div class="admin-principles registry-admin-grid"><div><span>1</span><strong>まず表示されているか確認する</strong><p>Windowsが対象デバイスを認識しているか確認します。</p></div><div><span>2</span><strong>デバイスの状態を確認する</strong><p>警告マーク、エラーコード、無効化の有無を確認します。</p></div><div><span>3</span><strong>ドライバー情報を記録する</strong><p>変更前の提供元、バージョン、日付を記録します。</p></div><div><span>4</span><strong>更新元を確認する</strong><p>Windows Update、メーカー情報、社内手順を確認します。</p></div><div><span>5</span><strong>復旧方法を確認する</strong><p>ロールバックや再インストールが可能か確認します。</p></div><div><span>6</span><strong>故障と決めつけない</strong><p>接続、ドライバー、設定、OS側を順番に切り分けます。</p></div></div>
 
@@ -119,7 +119,7 @@ lastUpdated: false
 <div class="registry-tree"><span>対象デバイスを確認</span><i>↓</i><span>一覧に表示されているか</span><i>↓</i><span>警告・無効化・エラーコードを確認</span><i>↓</i><span>ドライバーの提供元・バージョンを確認</span><i>↓</i><span>変更履歴や更新時期を確認</span><i>↓</i><span>必要に応じて更新・ロールバック・再認識を検討</span></div>
 <p>最初から更新や故障判断をせず、現在の状態から順番に確認します。</p>
 
-## よくあるトラブル {#common-issues}
+## <span class="wsus-section-heading-icon is-red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8M9 6V4h6v2M7 10h10v6a5 5 0 0 1-10 0v-6Z"/><path d="M3 13h4M17 13h4M4 18l3-1M20 18l-3-1"/></svg></span>よくあるトラブル {#common-issues}
 
 <div class="trouble-grid trouble-grid--six registry-trouble-grid"><div><span>1</span><h3>黄色い警告マークが表示される</h3><p>デバイスの状態、エラーコード、ドライバー情報を確認します。</p></div><div><span>2</span><h3>不明なデバイスが表示される</h3><p>ハードウェアID、端末仕様、メーカー情報、ドライバーの提供元を確認します。</p></div><div><span>3</span><h3>デバイスが表示されない</h3><p>接続、別ポート、スキャンを確認し、機器側の可能性も考えます。BIOS変更は社内手順を確認します。</p></div><div><span>4</span><h3>デバイスが無効化されている</h3><p>理由、組織の設定、有効化して問題ないかを確認します。</p></div><div><span>5</span><h3>更新後に不具合が発生した</h3><p>更新時期、ドライバーのバージョン、ロールバックの可否、既知の問題を確認します。</p></div><div><span>6</span><h3>アンインストール後に再表示される</h3><p>Windowsが機器を再認識し、デバイスやドライバーを再登録した可能性があります。異常とは限りません。</p></div></div>
 
@@ -131,7 +131,7 @@ lastUpdated: false
 
 <div class="wsus-practice-comparison"><div class="wsus-practice-heading wsus-practice-heading--warning"><strong>よくある失敗</strong></div><div class="wsus-practice-heading wsus-practice-heading--recommended"><strong>推奨される対応</strong></div><div class="wsus-practice-item wsus-practice-item--warning"><span>1</span><p>すぐ最新ドライバーへ更新する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>1</span><p>現在のバージョン、メーカーの推奨、更新履歴を確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>2</span><p>黄色い警告を故障と判断する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>2</span><p>状態、エラーコード、ドライバーを確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>3</span><p>検索サイトからドライバーを入手する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>3</span><p>機器を特定し、信頼できるメーカーの提供元を確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>4</span><p>情報を記録せず更新する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>4</span><p>提供元、バージョン、日付を記録してから変更する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>5</span><p>不用意にアンインストールする</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>5</span><p>再認識や再インストールの方法を確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>6</span><p>このツールだけで原因を断定する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>6</span><p>接続、Windows設定、管理ポリシー、アプリケーションも確認する</p></div></div>
 
-## まとめ {#page-summary}
+## <span class="wsus-section-heading-icon is-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></span>まとめ {#page-summary}
 
 <div class="takeaway-card"><ul><li><span class="takeaway-number">01</span><p class="takeaway-content"><span class="takeaway-lead"><strong>Windowsの認識状態を確認する</strong></span><span class="takeaway-detail">表示されているか、どのような状態か確認します。</span></p></li><li><span class="takeaway-number">02</span><p class="takeaway-content"><span class="takeaway-lead"><strong>ハードウェアとドライバーを分けて考える</strong></span><span class="takeaway-detail">機器本体が正常でも、ドライバーの問題で利用できない場合があります。</span></p></li><li><span class="takeaway-number">03</span><p class="takeaway-content"><span class="takeaway-lead"><strong>変更前に情報と復旧方法を確認する</strong></span><span class="takeaway-detail">提供元、バージョン、更新時期を記録します。</span></p></li><li><span class="takeaway-number">04</span><p class="takeaway-content"><span class="takeaway-lead"><strong>デバイスマネージャーだけで断定しない</strong></span><span class="takeaway-detail">接続、設定、管理ポリシー、ハードウェア側も切り分けます。</span></p></li></ul></div>
 

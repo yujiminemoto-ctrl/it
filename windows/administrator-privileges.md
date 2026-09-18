@@ -33,7 +33,7 @@ lastUpdated: false
 <div class="registry-tree"><span>通常の業務</span><i>↓</i><span>管理作業が必要</span><i>↓</i><span>必要な場合だけ管理者権限へ昇格</span></div>
 <p>通常の管理者アカウントでも、アプリケーションが常に完全な管理者権限で実行されるわけではありません。管理者権限が必要な操作では、<a href="#uac">UAC</a>による確認や昇格が行われます。</p>
 
-## 管理者権限はなぜ重要なのか {#why-important}
+## <span class="wsus-section-heading-icon is-green" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-1.2.8-1.6 1.3-1.6 2.55M12 17h.01"/></svg></span>管理者権限はなぜ重要なのか {#why-important}
 
 <p>管理者権限は、端末全体に影響する作業で必要になる場合があります。一方、強い権限での誤操作や不正プログラムの実行は、影響範囲も大きくします。</p>
 <p>管理者権限は情報セキュリティの面でも重要です。管理者権限で不正なプログラムが実行されると、システム設定の変更、セキュリティ機能への影響、他のユーザーへの影響など、被害範囲が大きくなる可能性があります。そのため、必要のないユーザーやアプリケーションに管理者権限を与えず、必要な作業だけで使用することが重要です。</p>
@@ -46,7 +46,7 @@ lastUpdated: false
 <div class="registry-root-grid"><div><strong>通常は管理者権限が不要</strong><p>Web閲覧、メール、Word・Excel、通常の業務アプリケーション利用</p></div><div><strong>必要になる場合がある</strong><p>システム設定の変更、ソフトウェアの導入、端末の管理作業</p></div></div>
 <div class="standard-callout standard-callout--admin"><strong>日常業務では常用しない</strong><p>必要な管理作業を行うときだけ管理者権限を使用します。</p></div>
 
-## 実際の利用シーン {#typical-scenarios}
+## <span class="wsus-section-heading-icon is-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 20c.4-4.2 2.3-6.3 5.5-6.3s5.1 2.1 5.5 6.3M14.5 14.5c3.5-.4 5.5 1.4 6 5.5"/></svg></span>実際の利用シーン {#typical-scenarios}
 
 <div class="registry-scenario-grid registry-scenario-grid--compact-labels">
 <div class="scenario-card"><p class="scenario-kicker">利用シーン 01</p><h3>ソフトウェアをインストールすると<a href="#uac">UAC</a>が表示される</h3><p><strong>状況</strong><br>業務アプリケーションやドライバーの導入時に、<a href="#uac">UAC</a>が表示される場合があります。</p><p><strong>確認の流れ</strong></p><ol><li>ソフトウェアを確認する</li><li>提供元や発行元を確認する</li><li>管理者権限が必要か確認する</li><li>必要な場合だけ昇格する</li></ol><p class="scenario-point"><strong>判断ポイント</strong><br><a href="#uac">UAC</a>が表示されても自動的に許可せず、何を実行しようとしているか確認します。</p></div>
@@ -55,7 +55,7 @@ lastUpdated: false
 <div class="scenario-card"><p class="scenario-kicker">利用シーン 04</p><h3>特定のPCだけ管理者権限がある</h3><p><strong>状況</strong><br>同じ会社のアカウントでも、端末によってローカル管理者権限が異なる場合があります。</p><p><strong>確認の流れ</strong></p><ol><li>対象端末を確認する</li><li>ローカルAdministratorsを確認する</li><li>GPOやIntuneの管理を確認する</li><li>業務上の必要性を確認する</li></ol><p class="scenario-point"><strong>判断ポイント</strong><br>ローカル管理者権限は端末ごとに設定され、別のPCでも同じとは限りません。</p></div>
 </div>
 
-## 基本的な仕組み {#how-it-works}
+## <span class="wsus-section-heading-icon is-purple" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.4 1A8 8 0 0 0 14.8 6L14.5 3h-5l-.3 3A8 8 0 0 0 7.5 7L5 6.1 3 9.5 5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.5-1a8 8 0 0 0 1.7 1l.3 3h5l.3-3a8 8 0 0 0 1.7-1l2.5 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></svg></span>基本的な仕組み {#how-it-works}
 
 ### 標準ユーザーと管理者アカウント
 
@@ -113,7 +113,7 @@ lastUpdated: false
 
 <div class="registry-card-grid"><div><strong><code>whoami</code></strong><p>現在サインインしているユーザーを確認します。</p></div><div><strong><code>whoami /groups</code></strong><p>所属グループを確認します。ただし、Administratorsへの所属と現在のコマンドやアプリケーションが昇格していることは別です。UACの状態によっては、Administratorsが制限された状態で表示されることがあります。</p></div><div><strong><code>net localgroup administrators</code></strong><p>この端末のAdministratorsに登録されたユーザーやグループを確認します。</p></div><div><strong><code>lusrmgr.msc</code></strong><p>ローカルユーザーとグループを確認・管理します。Windows Homeでは利用できません。</p></div><div><strong><code>compmgmt.msc</code></strong><p>「コンピューターの管理」を開きます。</p></div><div><strong><code>net user administrator</code></strong><p>組み込みAdministratorが既定名の環境で状態を確認する例です。名前が変更されている場合は、実際の名前を確認します。</p></div></div>
 
-## 管理者の確認ポイント {#administrator-checks}
+## <span class="wsus-section-heading-icon is-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M8.5 12l2.2 2.2 4.8-5"/></svg></span>管理者の確認ポイント {#administrator-checks}
 
 <div class="admin-principles registry-admin-grid"><div><span>1</span><strong>管理者権限が必要か確認する</strong><p>必要のない作業まで管理者権限で実行しません。</p></div><div><span>2</span><strong>ユーザーと所属グループを確認する</strong><p>誰でサインインし、Administratorsに所属しているか確認します。</p></div><div><span>3</span><strong>管理元を確認する</strong><p>端末固有か、Active Directory、GPO、Intuneなどの管理かを確認します。</p></div><div><span>4</span><strong>UACの内容を確認する</strong><p>プログラム名や発行元を確認してから昇格します。</p></div><div><span>5</span><strong>影響範囲を確認する</strong><p>ユーザーだけか、端末全体に影響する変更か確認します。</p></div><div><span>6</span><strong>強い権限を日常利用しない</strong><p>必要な管理作業だけに管理者権限を使用します。</p></div></div>
 <div class="standard-callout standard-callout--admin"><strong>管理者権限を「常用する権限」にしない</strong><p>通常のWeb閲覧、メール、文書作成などを常に高い権限で行う必要はありません。</p></div>
@@ -124,7 +124,7 @@ lastUpdated: false
 <p>必要に応じて、Administratorsへの所属や利用できる管理者アカウントを確認します。</p>
 <p>権限トラブルでは、最初から「管理者権限がない」と決めつけず、どの段階で拒否されているかを確認します。</p>
 
-## よくあるトラブル {#common-issues}
+## <span class="wsus-section-heading-icon is-red" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h8M9 6V4h6v2M7 10h10v6a5 5 0 0 1-10 0v-6Z"/><path d="M3 13h4M17 13h4M4 18l3-1M20 18l-3-1"/></svg></span>よくあるトラブル {#common-issues}
 
 <div class="trouble-grid trouble-grid--six registry-trouble-grid"><div><span>1</span><h3>Administratorsに所属しているのに操作できない</h3><p>実行状態、UAC、ファイルアクセス権、GPOやIntuneの制御を確認します。</p></div><div><span>2</span><h3>アクセスが拒否される</h3><p>ユーザー、操作対象、必要な権限、アクセス権、組織のポリシーを確認します。</p></div><div><span>3</span><h3>UACが何度も表示される</h3><p>要求元や発行元、そのアプリケーションが起動や操作のたびに管理者権限を必要とする仕様か、組織の管理設定を確認します。UACの無効化を解決策にはしません。</p></div><div><span>4</span><h3>「管理者として実行」が必要になる</h3><p>管理作業が含まれる可能性がありますが、表示されたら必ず使用するのではなく、必要性を確認します。</p></div><div><span>5</span><h3>組み込みAdministratorを使用できない</h3><p>無効化、名前変更、パスワード管理、組織の利用制限を確認します。</p></div><div><span>6</span><h3>別のPCでは管理者権限がない</h3><p>ローカルAdministratorsのメンバーは端末ごとに異なる場合があります。</p></div></div>
 
@@ -132,7 +132,7 @@ lastUpdated: false
 
 <div class="wsus-practice-comparison"><div class="wsus-practice-heading wsus-practice-heading--warning"><strong>よくある失敗</strong></div><div class="wsus-practice-heading wsus-practice-heading--recommended"><strong>推奨される対応</strong></div><div class="wsus-practice-item wsus-practice-item--warning"><span>1</span><p>権限不足ならすぐ管理者として実行する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>1</span><p>必要な権限と別の原因を先に確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>2</span><p>業務ユーザーを全員Administratorsに追加する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>2</span><p>必要なユーザーだけに必要な範囲で与える</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>3</span><p>UACが面倒なので無効にする</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>3</span><p>UACの役割を理解し、必要な操作だけ昇格する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>4</span><p>Administratorを日常業務で使用する</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>4</span><p>通常の業務用アカウントと組織の管理手順を使う</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>5</span><p>Administratorsならすべて操作できると思う</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>5</span><p>UAC、アクセス権、GPO、Intuneも確認する</p></div><div class="wsus-practice-item wsus-practice-item--warning"><span>6</span><p>ドメイン管理者を通常のPC作業に使う</p></div><div class="wsus-practice-item wsus-practice-item--recommended"><span>6</span><p>作業対象に必要な範囲の管理権限を使う</p></div></div>
 
-## まとめ {#page-summary}
+## <span class="wsus-section-heading-icon is-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z"/></svg></span>まとめ {#page-summary}
 
 <div class="takeaway-card"><ul><li><span class="takeaway-number">01</span><p class="takeaway-content"><span class="takeaway-lead"><strong>管理者権限は必要な管理作業に使用する</strong></span><span class="takeaway-detail">通常業務では標準的な権限を使い、必要な場合だけ昇格します。</span></p></li><li><span class="takeaway-number">02</span><p class="takeaway-content"><span class="takeaway-lead"><strong>AdministratorとAdministratorsは別</strong></span><span class="takeaway-detail">前者は組み込みアカウント、後者はローカルグループです。</span></p></li><li><span class="takeaway-number">03</span><p class="takeaway-content"><span class="takeaway-lead"><strong>管理者アカウントでもUACによる昇格が必要な場合がある</strong></span><span class="takeaway-detail">グループへの所属と現在の実行権限は別です。</span></p></li><li><span class="takeaway-number">04</span><p class="takeaway-content"><span class="takeaway-lead"><strong>権限不足は管理者権限だけが原因とは限らない</strong></span><span class="takeaway-detail">アクセス権、GPO、Intuneなども確認します。</span></p></li></ul></div>
 
