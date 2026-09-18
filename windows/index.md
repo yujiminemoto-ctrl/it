@@ -6,6 +6,9 @@
   <a href="./active-directory"><strong>Active Directory</strong><span>ユーザーや端末を一元管理する認証基盤</span></a>
   <a href="./ad-objects"><strong>OU・ユーザー・グループ</strong><span>管理対象を整理し、権限を割り当てる基本単位</span></a>
   <a href="./gpo"><strong>グループポリシー</strong><span>Windows端末の設定をまとめて適用する仕組み</span></a>
+  <a href="./registry"><strong>レジストリ</strong><span>Windowsの設定情報を確認するための基礎</span></a>
+  <a href="./administrator-privileges"><strong>管理者権限</strong><span>Windowsの管理権限と安全な使い方</span></a>
+  <a href="./device-manager"><strong>デバイスマネージャー</strong><span>ハードウェアとドライバーの状態を確認する基本</span></a>
   <a href="./wsus"><strong>WSUS</strong><span>Windows更新プログラムを社内で管理する仕組み</span></a>
 </div>
 

@@ -66,6 +66,9 @@ export default defineConfig({
           { text: 'Active Directory', link: '/windows/active-directory' },
           { text: 'OU・ユーザー・グループ', link: '/windows/ad-objects' },
           { text: 'グループポリシー', link: '/windows/gpo' },
+          { text: 'レジストリ', link: '/windows/registry' },
+          { text: '管理者権限', link: '/windows/administrator-privileges' },
+          { text: 'デバイスマネージャー', link: '/windows/device-manager' },
           { text: 'Windows Update', link: '/windows/windows-update' },
           { text: 'WSUS', link: '/windows/wsus' }
         ]

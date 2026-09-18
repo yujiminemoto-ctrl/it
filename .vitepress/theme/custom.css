@@ -5,6 +5,192 @@
   --portal-purple: #7c3aed;
 }
 
+/* Administrator privileges: compact scenario spacing */
+.administrator-privileges-page .registry-scenario-grid .scenario-card {
+  padding: 22px 26px;
+}
+
+.administrator-privileges-page .registry-scenario-grid ol {
+  margin-bottom: 12px;
+}
+
+/* Registry article */
+.registry-page .registry-overview {
+  display: grid;
+  width: min(600px, 100%);
+  gap: 8px;
+  justify-items: center;
+  margin: 20px auto 24px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.registry-page .registry-overview__sources,
+.registry-page .registry-card-grid,
+.registry-page .registry-root-grid,
+.registry-page .registry-scenario-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.registry-page .registry-overview__sources {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.registry-page .registry-overview__sources span,
+.registry-page .registry-overview > strong,
+.registry-page .registry-overview > span:last-child,
+.registry-page .registry-tree > span {
+  padding: 10px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  text-align: center;
+}
+
+.registry-page .registry-overview > strong {
+  width: min(280px, 100%);
+  border-color: rgba(37, 99, 235, .4);
+  color: var(--vp-c-brand-1);
+}
+
+.registry-page .registry-arrow,
+.registry-page .registry-tree > i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.registry-page .registry-card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 20px 0 24px;
+}
+
+.registry-page .registry-root-grid,
+.registry-page .registry-scenario-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 20px 0 24px;
+}
+
+.registry-page .registry-card-grid > div,
+.registry-page .registry-root-grid > div,
+.registry-page .registry-value-example,
+.registry-page .registry-command {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.registry-page .registry-card-grid p,
+.registry-page .registry-root-grid p,
+.registry-page .registry-command p {
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.registry-page .registry-card-grid small,
+.registry-page .registry-root-grid small {
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+}
+
+.registry-page .registry-scenario-grid .scenario-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.registry-page .registry-scenario-grid ol {
+  margin: 4px 0 18px;
+  padding-left: 22px;
+}
+
+.registry-page .registry-scenario-grid--compact-labels .scenario-kicker {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.registry-page .registry-scenario-grid .scenario-point {
+  margin-top: auto;
+}
+
+.registry-page .registry-tree {
+  display: grid;
+  width: min(380px, 100%);
+  gap: 6px;
+  margin: 20px auto 24px;
+  text-align: center;
+}
+
+.registry-page .registry-value-example,
+.registry-page .registry-command {
+  margin: 20px 0 24px;
+}
+
+.registry-page .registry-value-example p {
+  margin: 0 0 10px;
+}
+
+.registry-page .registry-value-example ul {
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+
+.registry-page .registry-value-example ul:last-child {
+  margin-bottom: 0;
+}
+
+.registry-page .registry-path-pair {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.registry-page .registry-path-pair code,
+.registry-page .registry-command > code {
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.registry-page .registry-steps {
+  margin: 16px 0 20px;
+  padding-left: 26px;
+}
+
+.registry-page .registry-admin-grid,
+.registry-page .registry-trouble-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.registry-page .registry-last-updated {
+  margin-top: 32px;
+  color: var(--vp-c-text-2);
+  font-size: .88rem;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .registry-page .registry-card-grid,
+  .registry-page .registry-root-grid,
+  .registry-page .registry-scenario-grid,
+  .registry-page .registry-admin-grid,
+  .registry-page .registry-trouble-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .registry-page .registry-overview__sources {
+    grid-template-columns: 1fr;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
