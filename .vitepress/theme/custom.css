@@ -272,7 +272,7 @@
   margin: 0;
 }
 
-.remote-desktop-page .remote-sequence--operation > div {
+.remote-desktop-page :is(.remote-sequence--operation, .remote-sequence--checks) > div {
   position: relative;
   display: flex;
   justify-content: center;
@@ -280,7 +280,7 @@
   text-align: center;
 }
 
-.remote-desktop-page .remote-sequence--operation > div > span {
+.remote-desktop-page :is(.remote-sequence--operation, .remote-sequence--checks) > div > span {
   position: absolute;
   left: 16px;
 }
