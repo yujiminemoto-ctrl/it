@@ -9,6 +9,7 @@
   <a href="./registry"><strong>レジストリ</strong><span>Windowsの設定情報を確認するための基礎</span></a>
   <a href="./administrator-privileges"><strong>管理者権限</strong><span>Windowsの管理権限と安全な使い方</span></a>
   <a href="./device-manager"><strong>デバイスマネージャー</strong><span>ハードウェアとドライバーの状態を確認する基本</span></a>
+  <a href="./remote-desktop"><strong>リモートデスクトップ</strong><span>Windows PCへ遠隔接続して操作する基本</span></a>
   <a href="./wsus"><strong>WSUS</strong><span>Windows更新プログラムを社内で管理する仕組み</span></a>
 </div>
 

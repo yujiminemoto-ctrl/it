@@ -191,6 +191,125 @@
   }
 }
 
+/* Remote Desktop article */
+.remote-desktop-page .remote-connection-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0 24px;
+}
+
+.remote-desktop-page .remote-connection-flow > div,
+.remote-desktop-page .remote-requirements > div {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+}
+
+.remote-desktop-page .remote-connection-flow > div {
+  text-align: center;
+}
+
+.remote-desktop-page .remote-connection-flow span {
+  display: block;
+  margin-top: 6px;
+  color: var(--vp-c-text-2);
+}
+
+.remote-desktop-page .remote-connection-flow i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.remote-desktop-page .remote-requirements {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+.remote-desktop-page .remote-requirements p {
+  margin: 6px 0 0;
+  color: var(--vp-c-text-2);
+}
+
+.remote-desktop-page .remote-sequence {
+  display: grid;
+  width: min(720px, 100%);
+  gap: 6px;
+  margin: 20px auto 24px;
+}
+
+.remote-desktop-page .remote-sequence > div {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+}
+
+.remote-desktop-page .remote-sequence span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(37, 99, 235, .35);
+  border-radius: 50%;
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  font-size: .82rem;
+}
+
+.remote-desktop-page .remote-sequence p {
+  margin: 0;
+}
+
+.remote-desktop-page .remote-sequence--operation > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-inline: 72px;
+  text-align: center;
+}
+
+.remote-desktop-page .remote-sequence--operation > div > span {
+  position: absolute;
+  left: 16px;
+}
+
+.remote-desktop-page .remote-sequence > i {
+  color: var(--vp-c-brand-1);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.remote-desktop-page .remote-foundation-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 760px) {
+  .remote-desktop-page .remote-connection-flow,
+  .remote-desktop-page .remote-requirements,
+  .remote-desktop-page .remote-foundation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .remote-desktop-page .remote-connection-flow i {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
