@@ -243,14 +243,14 @@
   color: var(--vp-c-text-2);
 }
 
-:is(.remote-desktop-page, .bitlocker-page) .remote-sequence {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) .remote-sequence {
   display: grid;
   width: min(720px, 100%);
   gap: 6px;
   margin: 20px auto 24px;
 }
 
-:is(.remote-desktop-page, .bitlocker-page) .remote-sequence > div {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) .remote-sequence > div {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 14px;
@@ -262,7 +262,7 @@
   background: var(--vp-c-bg);
 }
 
-:is(.remote-desktop-page, .bitlocker-page) .remote-sequence span {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) .remote-sequence span {
   display: grid;
   width: 36px;
   height: 36px;
@@ -274,11 +274,11 @@
   font-size: .82rem;
 }
 
-:is(.remote-desktop-page, .bitlocker-page) .remote-sequence p {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) .remote-sequence p {
   margin: 0;
 }
 
-:is(.remote-desktop-page, .bitlocker-page) :is(.remote-sequence--operation, .remote-sequence--checks) > div {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) :is(.remote-sequence--operation, .remote-sequence--checks) > div {
   position: relative;
   display: flex;
   justify-content: center;
@@ -286,17 +286,29 @@
   text-align: center;
 }
 
-:is(.remote-desktop-page, .bitlocker-page) :is(.remote-sequence--operation, .remote-sequence--checks) > div > span {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) :is(.remote-sequence--operation, .remote-sequence--checks) > div > span {
   position: absolute;
   left: 16px;
 }
 
-:is(.remote-desktop-page, .bitlocker-page) .remote-sequence > i {
+:is(.remote-desktop-page, .bitlocker-page, .command-prompt-page) .remote-sequence > i {
   color: var(--vp-c-brand-1);
   font-style: normal;
   font-weight: 700;
   line-height: 1;
   text-align: center;
+}
+
+.command-prompt-page .process-steps--three,
+.command-prompt-page .command-prompt-three-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 760px) {
+  .command-prompt-page .process-steps--three,
+  .command-prompt-page .command-prompt-three-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .remote-desktop-page .remote-foundation-grid {

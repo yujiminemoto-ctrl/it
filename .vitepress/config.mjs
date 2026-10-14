@@ -68,6 +68,7 @@ export default defineConfig({
           { text: 'グループポリシー', link: '/windows/gpo' },
           { text: 'レジストリ', link: '/windows/registry' },
           { text: '管理者権限', link: '/windows/administrator-privileges' },
+          { text: 'コマンドプロンプト', link: '/windows/command-prompt' },
           { text: 'デバイスマネージャー', link: '/windows/device-manager' },
           { text: 'BitLocker', link: '/windows/bitlocker' },
           { text: 'リモートデスクトップ', link: '/windows/remote-desktop' },
