@@ -9,6 +9,7 @@
   <a href="./registry"><strong>レジストリ</strong><span>Windowsの設定情報を確認するための基礎</span></a>
   <a href="./administrator-privileges"><strong>管理者権限</strong><span>Windowsの管理権限と安全な使い方</span></a>
   <a href="./command-prompt"><strong>コマンドプロンプト</strong><span>Windowsの状態確認とトラブル切り分けに使う基本ツール</span></a>
+  <a href="./powershell"><strong>PowerShell</strong><span>Windowsの状態確認・管理・自動化を行うための基本</span></a>
   <a href="./device-manager"><strong>デバイスマネージャー</strong><span>ハードウェアとドライバーの状態を確認する基本</span></a>
   <a href="./bitlocker"><strong>BitLocker</strong><span>ドライブを暗号化して保存データを保護する機能</span></a>
   <a href="./remote-desktop"><strong>リモートデスクトップ</strong><span>Windows PCへ遠隔接続して操作する基本</span></a>
