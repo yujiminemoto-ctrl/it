@@ -13,6 +13,8 @@
   <a href="./device-manager"><strong>デバイスマネージャー</strong><span>ハードウェアとドライバーの状態を確認する基本</span></a>
   <a href="./bitlocker"><strong>BitLocker</strong><span>ドライブを暗号化して保存データを保護する機能</span></a>
   <a href="./remote-desktop"><strong>リモートデスクトップ</strong><span>Windows PCへ遠隔接続して操作する基本</span></a>
+  <a href="./mail-profile"><strong>メールプロファイル</strong><span>クラシック Outlookのアカウント・データファイル・設定を管理する仕組み</span></a>
+  <a href="./windows-update"><strong>Windows Update</strong><span>Windowsを安全・安定した状態に保つ更新の基本</span></a>
   <a href="./wsus"><strong>WSUS</strong><span>Windows更新プログラムを社内で管理する仕組み</span></a>
 </div>
 

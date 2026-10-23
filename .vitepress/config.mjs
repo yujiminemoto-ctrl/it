@@ -73,6 +73,7 @@ export default defineConfig({
           { text: 'デバイスマネージャー', link: '/windows/device-manager' },
           { text: 'BitLocker', link: '/windows/bitlocker' },
           { text: 'リモートデスクトップ', link: '/windows/remote-desktop' },
+          { text: 'メールプロファイル', link: '/windows/mail-profile' },
           { text: 'Windows Update', link: '/windows/windows-update' },
           { text: 'WSUS', link: '/windows/wsus' }
         ]
