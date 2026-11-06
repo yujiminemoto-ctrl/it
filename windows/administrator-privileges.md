@@ -138,6 +138,6 @@ lastUpdated: false
 
 ## 関連ページ
 
-<div class="related-pages registry-related-pages"><a href="./registry"><span>Windows・認証基盤</span><strong>レジストリ</strong><p>Windowsの設定情報を安全に確認する基礎</p></a><a href="./gpo"><span>Windows・認証基盤</span><strong>グループポリシー</strong><p>端末へ設定をまとめて適用する仕組み</p></a><a href="./active-directory"><span>Windows・認証基盤</span><strong>Active Directory</strong><p>ユーザーと端末を管理する認証基盤</p></a><a href="../cloud/intune"><span>クラウド・端末管理</span><strong>Microsoft Intune</strong><p>管理対象端末の設定を管理する仕組み</p></a><a href="../operations/troubleshooting"><span>運用・障害対応</span><strong>Windowsトラブルシューティング</strong><p>問題を順番に切り分ける方法</p></a><a aria-disabled="true"><span>Windows・認証基盤</span><strong>Windowsサービス</strong><p>準備中</p></a></div>
+<div class="related-pages registry-related-pages"><a href="./registry"><span>Windows・認証基盤</span><strong>レジストリ</strong><p>Windowsの設定情報を安全に確認する基礎</p></a><a href="./gpo"><span>Windows・認証基盤</span><strong>グループポリシー</strong><p>端末へ設定をまとめて適用する仕組み</p></a><a href="./active-directory"><span>Windows・認証基盤</span><strong>Active Directory</strong><p>ユーザーと端末を管理する認証基盤</p></a><a href="../cloud/intune"><span>クラウド・端末管理</span><strong>Microsoft Intune</strong><p>管理対象端末の設定を管理する仕組み</p></a><a href="../operations/troubleshooting"><span>運用・障害対応</span><strong>Windowsトラブルシューティング</strong><p>問題を順番に切り分ける方法</p></a><a href="./windows-services"><span>Windows・認証基盤</span><strong>Windowsサービス</strong><p>サービスの役割と状態を確認する基本</p></a></div>
 
 <p class="registry-last-updated">最終更新：2026/09/18</p>

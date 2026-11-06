@@ -137,6 +137,6 @@ lastUpdated: false
 
 ## 関連ページ
 
-<div class="related-pages"><a href="./windows-update"><strong>Windows Update</strong><p>更新とドライバー配信の基本</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>管理操作と安全な権限の使い方</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題を順番に切り分ける考え方</p></a><a href="../network/basic-structure"><strong>ネットワークの基本構成</strong><p>接続とネットワーク機器の役割</p></a><a href="./registry"><strong>レジストリ</strong><p>Windowsの設定情報の確認</p></a><a aria-disabled="true"><strong>Windowsサービス</strong><p>準備中</p></a></div>
+<div class="related-pages"><a href="./windows-update"><strong>Windows Update</strong><p>更新とドライバー配信の基本</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>管理操作と安全な権限の使い方</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題を順番に切り分ける考え方</p></a><a href="../network/basic-structure"><strong>ネットワークの基本構成</strong><p>接続とネットワーク機器の役割</p></a><a href="./registry"><strong>レジストリ</strong><p>Windowsの設定情報の確認</p></a><a href="./windows-services"><strong>Windowsサービス</strong><p>サービスの役割と状態を確認する基本</p></a></div>
 
 <p class="registry-last-updated">最終更新：2026/09/18</p>

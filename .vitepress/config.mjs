@@ -31,6 +31,14 @@ export default defineConfig({
     },
     nav: [
       { text: 'ホーム', link: '/' },
+      {
+        text: 'ポータル案内',
+        items: [
+          { text: 'このポータルについて', link: '/guide/' },
+          { text: '社内IT担当者の考え方', link: '/guide/admin-mindset' },
+          { text: '初めて学ぶ方への参考', link: '/guide/learning-path' }
+        ]
+      },
       { text: 'ネットワーク', link: '/network/' },
       { text: 'Windows・認証', link: '/windows/' },
       { text: 'クラウド・端末管理', link: '/cloud/' },
@@ -70,6 +78,7 @@ export default defineConfig({
           { text: '管理者権限', link: '/windows/administrator-privileges' },
           { text: 'コマンドプロンプト', link: '/windows/command-prompt' },
           { text: 'PowerShell', link: '/windows/powershell' },
+          { text: 'Windowsサービス', link: '/windows/windows-services' },
           { text: 'デバイスマネージャー', link: '/windows/device-manager' },
           { text: 'BitLocker', link: '/windows/bitlocker' },
           { text: 'リモートデスクトップ', link: '/windows/remote-desktop' },

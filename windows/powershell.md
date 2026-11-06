@@ -194,6 +194,6 @@ lastUpdated: false
 
 ## 関連ページ
 
-<div class="related-pages"><a href="./command-prompt"><strong>コマンドプロンプト</strong><p>従来のWindowsコマンドを使う基本</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>昇格と安全な管理作業の考え方</p></a><a aria-disabled="true"><strong>Windowsサービス</strong><p>準備中</p></a><a href="../network/basic-structure"><strong>ネットワークの基本構成</strong><p>端末から接続先までの構成を理解する基本</p></a><a href="./gpo"><strong>グループポリシー</strong><p>Windows設定をまとめて適用する仕組み</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題の原因を順番に切り分ける方法</p></a></div>
+<div class="related-pages"><a href="./command-prompt"><strong>コマンドプロンプト</strong><p>従来のWindowsコマンドを使う基本</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>昇格と安全な管理作業の考え方</p></a><a href="./windows-services"><strong>Windowsサービス</strong><p>サービスの役割と状態を確認する基本</p></a><a href="../network/basic-structure"><strong>ネットワークの基本構成</strong><p>端末から接続先までの構成を理解する基本</p></a><a href="./gpo"><strong>グループポリシー</strong><p>Windows設定をまとめて適用する仕組み</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題の原因を順番に切り分ける方法</p></a></div>
 
 <p class="registry-last-updated">最終更新：2026/10/21</p>
