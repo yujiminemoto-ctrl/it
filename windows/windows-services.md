@@ -149,6 +149,6 @@ lastUpdated: false
 
 ## 関連ページ
 
-<div class="related-pages"><a href="./powershell"><strong>PowerShell</strong><p><code>Get-Service</code> で状態を確認する基本</p></a><a href="./windows-update"><strong>Windows Update</strong><p>Windows更新の仕組みと確認方法</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>管理操作と安全な権限の使い方</p></a><a href="./command-prompt"><strong>コマンドプロンプト</strong><p>Windowsの状態確認に使う基本ツール</p></a><a aria-disabled="true"><strong>イベントビューアー</strong><p>準備中</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題の原因を順番に切り分ける方法</p></a></div>
+<div class="related-pages"><a href="./powershell"><strong>PowerShell</strong><p><code>Get-Service</code> で状態を確認する基本</p></a><a href="./windows-update"><strong>Windows Update</strong><p>Windows更新の仕組みと確認方法</p></a><a href="./administrator-privileges"><strong>管理者権限</strong><p>管理操作と安全な権限の使い方</p></a><a href="./command-prompt"><strong>コマンドプロンプト</strong><p>Windowsの状態確認に使う基本ツール</p></a><a href="./event-viewer"><strong>イベントビューアー</strong><p>Windowsのイベントログを確認する基本</p></a><a href="../operations/troubleshooting"><strong>Windowsトラブルシューティング</strong><p>問題の原因を順番に切り分ける方法</p></a></div>
 
 <p class="registry-last-updated">最終更新：2026/11/06</p>

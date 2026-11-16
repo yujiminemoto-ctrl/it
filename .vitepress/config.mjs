@@ -79,6 +79,7 @@ export default defineConfig({
           { text: 'コマンドプロンプト', link: '/windows/command-prompt' },
           { text: 'PowerShell', link: '/windows/powershell' },
           { text: 'Windowsサービス', link: '/windows/windows-services' },
+          { text: 'イベントビューアー', link: '/windows/event-viewer' },
           { text: 'デバイスマネージャー', link: '/windows/device-manager' },
           { text: 'BitLocker', link: '/windows/bitlocker' },
           { text: 'リモートデスクトップ', link: '/windows/remote-desktop' },
