@@ -61,6 +61,7 @@ export default defineConfig({
           { text: 'カテゴリ概要', link: '/network/' },
           { text: 'ネットワークの基本構成', link: '/network/basic-structure' },
           { text: 'IPアドレス', link: '/network/ip-address' },
+          { text: 'サブネットマスクとCIDR', link: '/network/subnet-mask-cidr' },
           { text: 'ルーティング', link: '/network/routing' },
           { text: 'DNS', link: '/network/dns' },
           { text: 'DHCP', link: '/network/dhcp' }

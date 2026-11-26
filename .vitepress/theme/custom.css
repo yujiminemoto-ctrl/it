@@ -5,6 +5,293 @@
   --portal-purple: #7c3aed;
 }
 
+/* サブネットマスクとCIDR */
+.subnet-mask-cidr-page code {
+  overflow-wrap: anywhere;
+}
+
+.subnet-mask-cidr-page .subnet-setting-example,
+.subnet-mask-cidr-page .subnet-definition {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.subnet-mask-cidr-page .subnet-setting-example {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.subnet-mask-cidr-page .subnet-setting-example > div,
+.subnet-mask-cidr-page .subnet-definition > span,
+.subnet-mask-cidr-page .subnet-definition > strong,
+.subnet-mask-cidr-page .subnet-prefix-compare > section,
+.subnet-mask-cidr-page .subnet-split-diagram__source,
+.subnet-mask-cidr-page .subnet-split-diagram__parts > section {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.subnet-mask-cidr-page .subnet-setting-example span,
+.subnet-mask-cidr-page .subnet-setting-example code,
+.subnet-mask-cidr-page .subnet-definition span,
+.subnet-mask-cidr-page .subnet-definition strong,
+.subnet-mask-cidr-page .subnet-definition code,
+.subnet-mask-cidr-page .subnet-split-diagram strong,
+.subnet-mask-cidr-page .subnet-split-diagram code,
+.subnet-mask-cidr-page .subnet-split-diagram span,
+.subnet-mask-cidr-page .subnet-split-diagram small {
+  display: block;
+}
+
+.subnet-mask-cidr-page .subnet-setting-example span,
+.subnet-mask-cidr-page .subnet-definition span,
+.subnet-mask-cidr-page .subnet-split-diagram strong {
+  margin-bottom: 7px;
+  color: var(--vp-c-text-2);
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+.subnet-mask-cidr-page .subnet-definition {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.subnet-mask-cidr-page .subnet-definition > strong {
+  border-color: rgba(36, 91, 143, .32);
+  background: rgba(36, 91, 143, .08);
+}
+
+.subnet-mask-cidr-page .subnet-binary {
+  margin: 22px 0;
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+}
+
+.subnet-mask-cidr-page .subnet-binary > p {
+  margin: 0 0 14px;
+}
+
+.subnet-mask-cidr-page .subnet-binary > p strong,
+.subnet-mask-cidr-page .subnet-binary > p code {
+  margin-right: 10px;
+}
+
+.subnet-mask-cidr-page .subnet-binary__bits {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 16px 12px;
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  font-family: var(--vp-font-family-mono);
+  font-size: clamp(.78rem, 2vw, 1rem);
+  white-space: nowrap;
+}
+
+.subnet-mask-cidr-page .subnet-binary__bits span:first-child {
+  color: #075985;
+}
+
+.subnet-mask-cidr-page .subnet-binary__bits span:last-child {
+  color: #7c3aed;
+}
+
+.subnet-mask-cidr-page .subnet-binary__bits b,
+.subnet-mask-cidr-page .subnet-binary__bits i {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.subnet-mask-cidr-page .subnet-binary__labels {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.subnet-mask-cidr-page .subnet-binary__labels span {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+}
+
+.subnet-mask-cidr-page .subnet-binary__labels strong,
+.subnet-mask-cidr-page .subnet-binary__labels small {
+  display: block;
+}
+
+.subnet-mask-cidr-page .subnet-binary__labels small {
+  margin-top: 3px;
+  color: var(--vp-c-text-2);
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare h4 {
+  margin: 0 0 8px;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare section > p {
+  margin: 0 0 14px;
+  color: var(--vp-c-text-2);
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare section > div {
+  display: grid;
+  gap: 10px;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare section > div > span {
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--vp-c-bg);
+  font-weight: 700;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare code,
+.subnet-mask-cidr-page .subnet-prefix-compare small {
+  display: block;
+  margin-top: 4px;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare h4 code {
+  display: inline;
+  margin: 0;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare small {
+  color: var(--vp-c-text-2);
+  font-weight: 500;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare section > strong {
+  display: block;
+  margin-top: 14px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare .is-same > strong {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.subnet-mask-cidr-page .subnet-prefix-compare .is-different > strong {
+  color: #9f1239;
+  background: #ffe4e6;
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram {
+  margin: 24px 0;
+  padding: 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-soft);
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram__source {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--vp-c-bg);
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram > i {
+  display: block;
+  margin: 8px 0;
+  color: var(--vp-c-brand-1);
+  font-size: 1.4rem;
+  font-style: normal;
+  text-align: center;
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram__parts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram__parts > section {
+  background: var(--vp-c-bg);
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram code {
+  margin-bottom: 7px;
+  font-size: .95rem;
+  font-weight: 800;
+}
+
+.subnet-mask-cidr-page .subnet-split-diagram small {
+  margin-top: 7px;
+  color: var(--vp-c-text-2);
+}
+
+.subnet-mask-cidr-page .subnet-related-pending {
+  min-width: 0;
+  padding: 18px;
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
+.subnet-mask-cidr-page .subnet-related-pending span,
+.subnet-mask-cidr-page .subnet-related-pending strong {
+  display: block;
+}
+
+.subnet-mask-cidr-page .subnet-related-pending span {
+  color: var(--vp-c-brand-1);
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.subnet-mask-cidr-page .subnet-related-pending strong {
+  margin: 6px 0;
+}
+
+.subnet-mask-cidr-page .subnet-related-pending p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+}
+
+@media (max-width: 700px) {
+  .subnet-mask-cidr-page .subnet-setting-example,
+  .subnet-mask-cidr-page .subnet-definition,
+  .subnet-mask-cidr-page .subnet-prefix-compare,
+  .subnet-mask-cidr-page .subnet-split-diagram__parts {
+    grid-template-columns: 1fr;
+  }
+
+  .subnet-mask-cidr-page .subnet-binary {
+    padding: 16px 12px;
+  }
+
+  .subnet-mask-cidr-page .subnet-binary__bits {
+    justify-content: flex-start;
+    font-size: .75rem;
+  }
+
+  .subnet-mask-cidr-page .subnet-binary__labels {
+    grid-template-columns: 1fr;
+  }
+
+  .subnet-mask-cidr-page .subnet-split-diagram {
+    padding: 16px 12px;
+  }
+}
+
 /* Guide pages */
 .guide-page .VPDoc .aside {
   display: none;
